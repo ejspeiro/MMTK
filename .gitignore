@@ -24,7 +24,3 @@
 
 # MATLAB-related
 *.mexa64
-
-# Temporary
-mexsrc
-examples

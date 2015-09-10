@@ -82,7 +82,7 @@ CCFLAGS = -O2
 
 # Flags recommended for debugging code:
 
-CCFLAGS = -g
+CCFLAGS =
 
 #   7. Archiver, its flags, and ranlib:
 #   __________________________________________________________________
@@ -125,13 +125,15 @@ EXAMPLES  = $(BASE)/examples
 
 CC = mex
 
-CCFLAGS += -largeArrayDims -DMTK_DEBUG_LEVEL=$(DEBUG_LEVEL) -I$(INCLUDE)  -c
+CCFLAGS += -largeArrayDims -g
 
 ifeq ($(PRECISION),DOUBLE)
   CCFLAGS += -DMTK_PRECISION_DOUBLE
 else
   CCFLAGS += -DMTK_PRECISION_SINGLE
 endif
+
+CCFLAGS += -DMTK_DEBUG_LEVEL=$(DEBUG_LEVEL) -I$(INCLUDE)
 
 # Only the GLPK is included because the other dependencies are coded in Fortran.
 
