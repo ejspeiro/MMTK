@@ -1,4 +1,4 @@
-# README File for the Mimetic Methods Toolkit (MTK)
+# README File for the MATLAB wrappers for the Mimetic Methods Toolkit (MMTK)
 
 By: **Eduardo J. Sanchez, Ph.D. - esanchez at mail dot sdsu dot edu**
     __________________________________________________________________
@@ -15,7 +15,6 @@ numerical solution of ordinary and partial differential equations.
 
 This collection of **MATLAB Wrappers for the MTK (MMTK)** allows developers to
 invoke the MTK from a MATLAB environment.
-
     __________________________________________________________________
 
 ## 2. Dependencies

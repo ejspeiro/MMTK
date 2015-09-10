@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="indexpage" kind="page">
+    <compoundname>index</compoundname>
+    <title>Introduction</title>
+    <detaileddescription>
+<para>We define numerical methods that are based on discretizations preserving the properties of their continuum counterparts to be <bold>mimetic</bold>.</para><para>The <bold>Mimetic Methods Toolkit (MTK)</bold> is a C++ library for mimetic numerical methods. It is a set of classes for <bold>mimetic quadratures</bold>, <bold>mimetic interpolation</bold>, and <bold>mimetic discretization methods</bold> for the numerical solution of ordinary and partial differential equations.</para><sect1 id="index_1section_mtk_concerns">
+<title>MTK Concerns</title>
+<para>Since collaborative development efforts are definitely important in achieving the level of generality we intend the library to possess, we have divided the library&apos;s source code according to the designated purpose the classes possess within the library. These divisions (or concerns) are grouped by layers, and are hierarchically related by the dependence they have among them.</para><para>One concern is said to depend on another one, if the classes the first concern includes, rely on the classes the second concern includes.</para><para>In order of dependence these are:</para><para><orderedlist>
+<listitem><para>Roots.</para></listitem><listitem><para>Enumerations.</para></listitem><listitem><para>Tools.</para></listitem><listitem><para>Data Structures.</para></listitem><listitem><para>Numerical Methods.</para></listitem><listitem><para>Grids.</para></listitem><listitem><para>Mimetic Operators.</para></listitem></orderedlist>
+</para></sect1>
+<sect1 id="index_1section_flavors">
+<title>MTK Flavors</title>
+<para>The MTK collection of wrappers is:</para><para><orderedlist>
+<listitem><para>MMTK: MATLAB wrappers collection for MTK; intended for sequential computations.</para></listitem></orderedlist>
+</para><para>Others are being designed and developed.</para></sect1>
+<sect1 id="index_1section_authors">
+<title>Contact, Support and Credits</title>
+<para>The MTK is developed by researchers and adjuncts to the <ulink url="http://www.csrc.sdsu.edu/">Computational Science Research Center (CSRC)</ulink> at <ulink url="http://www.sdsu.edu/">San Diego State University (SDSU)</ulink>.</para><para>Developers are members of:</para><para><orderedlist>
+<listitem><para>Mimetic Numerical Methods Research and Development Group.</para></listitem><listitem><para>Computational Geoscience Research and Development Group.</para></listitem><listitem><para>Ocean Modeling Research and Development Group.</para></listitem></orderedlist>
+</para><para>Currently the developers are:</para><para><orderedlist>
+<listitem><para><bold>Eduardo J. Sanchez, Ph.D. - esanchez at mail dot sdsu dot edu</bold> - ejspeiro</para></listitem><listitem><para>Jose E. Castillo, Ph.D. - jcastillo at mail dot sdsu dot edu</para></listitem><listitem><para>Guillermo F. Miranda, Ph.D. - unigrav at hotmail dot com</para></listitem><listitem><para>Christopher P. Paolini, Ph.D. - paolini at engineering dot sdsu dot edu</para></listitem><listitem><para>Angel Boada.</para></listitem><listitem><para>Johnny Corbino.</para></listitem><listitem><para>Raul Vargas-Navarro.</para></listitem></orderedlist>
+</para></sect1>
+<sect1 id="index_1subsection_acknowledgements">
+<title>Acknowledgements and Contributions</title>
+<para>The authors would like to acknowledge valuable advising, contributions and feedback, from research personnel at the Computational Science Research Center at San Diego State University, which were vital to the fruition of this work. Specifically, our thanks go to (alphabetical order):</para><para><orderedlist>
+<listitem><para>Mohammad Abouali, Ph.D.</para></listitem><listitem><para>Dany De Cecchis, Ph.D.</para></listitem><listitem><para>Julia Rossi. </para></listitem></orderedlist>
+</para></sect1>
+    </detaileddescription>
+  </compounddef>
+</doxygen>

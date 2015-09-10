@@ -1,0 +1,11 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="section_prog_tools" kind="page">
+    <compoundname>section_prog_tools</compoundname>
+    <title>Programming Tools</title>
+    <detaileddescription>
+<para>The development of MTK has been made possible through the use of the following applications:<orderedlist>
+<listitem><para>Editor: Kate - KDE Advanced Text Editor. Version 3.13.3. Using KDE Development Platform 4.13.3 (C) 2000-2005 The Kate Authors.</para></listitem><listitem><para>Compiler: gcc version 4.4.5 (Ubuntu/Linaro 4.4.4-14ubuntu5). Copyright (C) 2013 Free Software Foundation, Inc.</para></listitem><listitem><para>Debugger: GNU gdb (Ubuntu 7.7.1-0ubuntu5~14.04.2) 7.7.1. Copyright (C) 2014 Free Software Foundation, Inc. </para></listitem></orderedlist>
+</para>    </detaileddescription>
+  </compounddef>
+</doxygen>

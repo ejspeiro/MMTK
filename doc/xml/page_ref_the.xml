@@ -1,0 +1,9 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="page_ref_the" kind="page">
+    <compoundname>page_ref_the</compoundname>
+    <title>User Manual, References and Theory</title>
+    <detaileddescription>
+<para>The main source of references for this work can be found in:</para><para><ulink url="http://www.csrc.sdsu.edu/mimetic-book/">http://www.csrc.sdsu.edu/mimetic-book/</ulink></para><para>However, a .PDF copy of this manual can be found <ulink url="../latex/refman.pdf">here</ulink>. </para>    </detaileddescription>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,82 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="Div1D_8m" kind="file">
+    <compoundname>Div1D.m</compoundname>
+      <sectiondef kind="var">
+      <memberdef kind="variable" id="Div1D_8m_1a5deb88318d4038c04133785a4f718d42" prot="public" static="no" mutable="no">
+        <type>format</type>
+        <definition>format shortG</definition>
+        <argsstring></argsstring>
+        <name>shortG</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ejspeiro/Dropbox/MMTK/examples/Div1D.m" line="21" column="1" bodyfile="/home/ejspeiro/Dropbox/MMTK/examples/Div1D.m" bodystart="21" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="Div1D_8m_1a4603254d9990f7140c024d51302d1a8f" prot="public" static="no" mutable="no">
+        <type>close</type>
+        <definition>clear all</definition>
+        <argsstring></argsstring>
+        <name>all</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ejspeiro/Dropbox/MMTK/examples/Div1D.m" line="22" column="1" bodyfile="/home/ejspeiro/Dropbox/MMTK/examples/Div1D.m" bodystart="22" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="Div1D_8m_1a3f3d3b13a15c726d6aa03db3dd0d6377" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>clc</definition>
+        <argsstring></argsstring>
+        <name>clc</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ejspeiro/Dropbox/MMTK/examples/Div1D.m" line="24" column="1" bodyfile="/home/ejspeiro/Dropbox/MMTK/examples/Div1D.m" bodystart="24" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="normal">%<sp/>FUNCTION_NAME<sp/>-<sp/>Div1D</highlight></codeline>
+<codeline lineno="2"><highlight class="normal">%<sp/>Creation<sp/>of<sp/>different<sp/>high-order<sp/>mimetic<sp/>divergence<sp/>operators<sp/>with<sp/>the<sp/>MMTK.</highlight></codeline>
+<codeline lineno="3"><highlight class="normal">%</highlight></codeline>
+<codeline lineno="4"><highlight class="normal">%<sp/>Other<sp/>m-files<sp/>required:<sp/>None.</highlight></codeline>
+<codeline lineno="5"><highlight class="normal">%<sp/>Subfunctions:<sp/>The<sp/>MMTK.</highlight></codeline>
+<codeline lineno="6"><highlight class="normal">%<sp/>MAT-files<sp/>required:<sp/>None.</highlight></codeline>
+<codeline lineno="7"><highlight class="normal">%</highlight></codeline>
+<codeline lineno="8"><highlight class="normal">%<sp/>See<sp/>also:<sp/>MMTKDiv1D.</highlight></codeline>
+<codeline lineno="9"><highlight class="normal">%</highlight></codeline>
+<codeline lineno="10"><highlight class="normal">%<sp/>Author:<sp/>Eduardo<sp/>Sanchez,<sp/>Ph.D.</highlight></codeline>
+<codeline lineno="11"><highlight class="normal">%<sp/>Computational<sp/>Science<sp/>Research<sp/>Center.</highlight></codeline>
+<codeline lineno="12"><highlight class="normal">%<sp/>5500<sp/>Campanile<sp/>Drive,<sp/>San<sp/>Diego<sp/>State<sp/>University.</highlight></codeline>
+<codeline lineno="13"><highlight class="normal">%<sp/>Email:<sp/>esanchez<sp/>at<sp/>mail<sp/>dot<sp/>sdsu<sp/>dot<sp/>edu</highlight></codeline>
+<codeline lineno="14"><highlight class="normal">%<sp/>Website:<sp/>http:</highlight><highlight class="comment">//www-rohan.sdsu.edu/~sanche94/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal">%<sp/>2015-09-10<sp/>14:18:35</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal">%-------------<sp/>BEGIN<sp/>CODE<sp/>--------------</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal">addpath(&apos;../mexsrc&apos;);</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight></codeline>
+<codeline lineno="21" refid="Div1D_8m_1a5deb88318d4038c04133785a4f718d42" refkind="member"><highlight class="normal">format<sp/><ref refid="Div1D_8m_1a5deb88318d4038c04133785a4f718d42" kindref="member">shortG</ref>;</highlight></codeline>
+<codeline lineno="22" refid="Div1D_8m_1a4603254d9990f7140c024d51302d1a8f" refkind="member"><highlight class="normal">close<sp/><ref refid="Div1D_8m_1a4603254d9990f7140c024d51302d1a8f" kindref="member">all</ref>;</highlight></codeline>
+<codeline lineno="23"><highlight class="normal">clear<sp/><ref refid="Div1D_8m_1a4603254d9990f7140c024d51302d1a8f" kindref="member">all</ref>;</highlight></codeline>
+<codeline lineno="24" refid="Div1D_8m_1a3f3d3b13a15c726d6aa03db3dd0d6377" refkind="member"><highlight class="normal"><ref refid="Div1D_8m_1a3f3d3b13a15c726d6aa03db3dd0d6377" kindref="member">clc</ref>;</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal">MMTKDiv1D(2)</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal">%-------------<sp/>END<sp/>OF<sp/>CODE<sp/>--------------</highlight></codeline>
+    </programlisting>
+    <location file="/home/ejspeiro/Dropbox/MMTK/examples/Div1D.m"/>
+  </compounddef>
+</doxygen>

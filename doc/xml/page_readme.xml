@@ -1,0 +1,109 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="page_readme" kind="page">
+    <compoundname>page_readme</compoundname>
+    <title>Read Me File and Installation Instructions</title>
+    <detaileddescription>
+<para><preformatted>
+<heading level="1">README File for the Mimetic Methods Toolkit (MTK)</heading>
+</preformatted></para><para><preformatted></preformatted></para><para><preformatted>By: <bold>Eduardo J. Sanchez, Ph.D. - esanchez at mail dot sdsu dot edu</bold>
+<hruler/>
+</preformatted></para><para><preformatted><heading level="2">1. Description</heading>
+</preformatted></para><para><preformatted></preformatted></para><para><preformatted>We define numerical methods that are based on discretizations preserving the
+properties of their continuum counterparts to be <bold>mimetic</bold>.</preformatted></para><para><preformatted>The <bold>Mimetic Methods Toolkit (MTK)</bold> is a C++ library for mimetic numerical
+methods. It is arranged as a set of classes for <bold>mimetic quadratures</bold>,
+<bold>mimetic interpolation</bold>, and <bold>mimetic discretization</bold> methods for the
+numerical solution of ordinary and partial differential equations.</preformatted></para><para><preformatted>This collection of <bold>MATLAB Wrappers for the MTK (MMTK)</bold> allows developers to
+invoke the MTK from a MATLAB environment.
+<verbatim>__________________________________________________________________
+</verbatim></preformatted></para><para><preformatted><heading level="2">2. Dependencies</heading>
+</preformatted></para><para><preformatted></preformatted></para><para><preformatted>This README assumes all of these dependencies are installed in the following
+folder:</preformatted></para><para><preformatted>```
+/home/ejspeiro/Libraries/
+```</preformatted></para><para><preformatted>In this version, the MTK optionally uses ATLAS-optimized BLAS and LAPACK
+routines for the internal computation on some of the layers. However, ATLAS
+requires both BLAS and LAPACK in order to create their optimized distributions.
+Therefore, the following dependencies tree arises:</preformatted></para><para><preformatted><heading level="3">For Linux and OS X:</heading>
+</preformatted></para><para><preformatted></preformatted></para><para><preformatted>1. MATLAB R2014a or greater - Available from: <ulink url="http://www.mathworks.com/">http://www.mathworks.com/</ulink></preformatted></para><para><preformatted>1. MTK - Available from: <ulink url="http://csrc.sdsu.edu/mtk/">http://csrc.sdsu.edu/mtk/</ulink>
+<hruler/>
+</preformatted></para><para><preformatted><heading level="2">3. Installation</heading>
+</preformatted></para><para><preformatted></preformatted></para><para><preformatted>The following instructions assume MATLAB R2014a or greater.</preformatted></para><para><preformatted>You have two options, either follow the instructions given, <bold>expert install</bold>,
+or use the provided <bold>patch file</bold>, <bold>naive install</bold>.</preformatted></para><para><preformatted><heading level="3">EXPERT PART 1. CONFIGURATION OF THE MEX COMPILER.</heading>
+</preformatted></para><para><preformatted></preformatted></para><para><preformatted>From your MATLAB prompt, type:</preformatted></para><para><preformatted>```
+<blockquote><para><blockquote><para>mex -setup C++</para><para></para></blockquote></para><para></para></blockquote>MEX configured to use &apos;g++&apos; for C++ language compilation.
+Warning: The MATLAB C and Fortran API has changed to support MATLAB
+     variables with more than 2^32-1 elements. In the near future
+     you will be required to update your code to utilize the
+     new API. You can find more information about this at:</preformatted></para><para><preformatted><ulink url="http://www.mathworks.com/help/matlab/matlab_external/upgrading-mex-files-to-use-">http://www.mathworks.com/help/matlab/matlab_external/upgrading-mex-files-to-use-</ulink>
+64-bit-api.html.
+<blockquote><para><blockquote><para></para><para></para></blockquote></para><para></para></blockquote>```</preformatted></para><para><preformatted><heading level="3">EXPERT PART 2. CONFIGURATION OF THE MEX COMPILER SETUP FILE.</heading>
+</preformatted></para><para><preformatted></preformatted></para><para><preformatted>The previous step creates the following file:</preformatted></para><para><preformatted>```
+/home/ejspeiro/.matlab/R2014a/mex_C++_glnxa64.xml
+```</preformatted></para><para><preformatted>The purpose of this section is to configure the MATLAB R2014a Mex compiler so
+that it can work with the latest C++ standard (C++11).</preformatted></para><para><preformatted>Please execute the following changes on the aforementioned file (line numbers
+may differ):</preformatted></para><para><preformatted>Lines 26 and 27:</preformatted></para><para><preformatted>```
+CMDLINE1=&quot;$CXX -std=c++11 -c $DEFINES $INCLUDE $CXXFLAGS $OPTIM $SRC -o $OBJ&quot;
+CMDLINE2=&quot;$LDXX -std=c++11 $LDFLAGS $LDTYPE $LINKOPTIM $LINKEXPORT $OBJS $CXXLIBS $LINKLIBS -o $EXE&quot;
+```</preformatted></para><para><preformatted>Line 33:</preformatted></para><para><preformatted>```
+CXXFLAGS=&quot;-std=c++11 -ansi -fexceptions -fPIC -fno-omit-frame-pointer -pthread&quot;
+```</preformatted></para><para><preformatted>Line 35 and 26:</preformatted></para><para><preformatted>```
+CXXOPTIMFLAGS=&quot;-std=c++11 -O -DNDEBUG&quot;
+CXXDEBUGFLAGS=&quot;-std=c++11 -g&quot;
+```</preformatted></para><para><preformatted>Line 38:</preformatted></para><para><preformatted>```
+LDXX=&quot;gfortran&quot;
+```</preformatted></para><para><preformatted>Line 59:</preformatted></para><para><preformatted>```
+CXXFLAGS=&quot;-std=c++11 -ansi -pthread&quot;
+```</preformatted></para><para><preformatted><heading level="3">NAIVE PART 1. CONFIGURATION OF THE MEX COMPILER.</heading>
+</preformatted></para><para><preformatted></preformatted></para><para><preformatted>From your MATLAB prompt, type:</preformatted></para><para><preformatted>```
+<blockquote><para><blockquote><para>mex -setup C++</para><para></para></blockquote></para><para></para></blockquote>MEX configured to use &apos;g++&apos; for C++ language compilation.
+Warning: The MATLAB C and Fortran API has changed to support MATLAB
+     variables with more than 2^32-1 elements. In the near future
+     you will be required to update your code to utilize the
+     new API. You can find more information about this at:</preformatted></para><para><preformatted><ulink url="http://www.mathworks.com/help/matlab/matlab_external/upgrading-mex-files-to-use-">http://www.mathworks.com/help/matlab/matlab_external/upgrading-mex-files-to-use-</ulink>
+64-bit-api.html.
+<blockquote><para><blockquote><para></para><para></para></blockquote></para><para></para></blockquote>```</preformatted></para><para><preformatted><heading level="3">NAIVE PART 2. CONFIGURATION OF THE MEX COMPILER SETUP FILE.</heading>
+</preformatted></para><para><preformatted></preformatted></para><para><preformatted>```
+cd $HOME/.matlab/R2014a
+chmod +w mex_C++_glnxa64.xml
+patch &lt; mex_C++_glnxa64.patch
+chmod -w mex_C++_glnxa64.xml
+```
+Exit terminal, and restart MATLAB. You can use C++11 to create MEX files now!</preformatted></para><para><preformatted><heading level="3">PART 3: CONFIGURATION OF THE MAKEFILE.</heading>
+</preformatted></para><para><preformatted></preformatted></para><para><preformatted>The following steps are required the build and test the MTK. Please use the
+accompanying <computeroutput><ref refid="Makefile_8inc" kindref="compound">Makefile.inc</ref></computeroutput> file, which should provide a solid template to
+start with. The following command provides help on the options for make:</preformatted></para><para><preformatted>```
+<heading level="2">$ make help
+</heading>
+</preformatted></para><para><preformatted>
+Makefile for the MMTK.</preformatted></para><para><preformatted>Options are:<itemizedlist>
+<listitem><para>all: builds he library, the tests, and examples.</para></listitem></itemizedlist>
+</preformatted></para><para><preformatted><itemizedlist>
+<listitem><para>gendoc: generates the documentation for the library.</para></listitem></itemizedlist>
+</preformatted></para><para><preformatted><heading level="2">- clean: cleans ALL the generated files.
+</heading>
+</preformatted></para><para><preformatted>
+```</preformatted></para><para><preformatted><heading level="3">PART 4. BUILD THE MMTK.</heading>
+</preformatted></para><para><preformatted></preformatted></para><para><preformatted>From your shell, at the base folder of the MMTK, just type:</preformatted></para><para><preformatted>```
+make
+```</preformatted></para><para><preformatted>If successful you&apos;ll read:</preformatted></para><para><preformatted>```
+--<mdash/> Library created! Check in /home/ejspeiro/Dropbox/MTK/lib
+```
+<hruler/>
+</preformatted></para><para><preformatted><heading level="2">4. Frequently Asked Questions</heading>
+</preformatted></para><para><preformatted></preformatted></para><para><preformatted>Q: Why haven&apos;t you guys implemented GBS to build the library?
+A: I&apos;m on it as we speak! ;)</preformatted></para><para><preformatted>Q: When will the other flavors be ready?
+A: Soon! I&apos;m working on getting help on developing those.</preformatted></para><para><preformatted>Q: Is there any main reference when it comes to the theory on Mimetic Methods?
+A: Yes! Check: <ulink url="http://www.csrc.sdsu.edu/mimetic-book">http://www.csrc.sdsu.edu/mimetic-book</ulink></preformatted></para><para><preformatted>Q: Do I need to generate the documentation myself?
+A: You can if you want to... but if you DO NOT want to, just go to our website.
+<hruler/>
+</preformatted></para><para><preformatted><heading level="2">5. Contact, Support, and Credits</heading>
+</preformatted></para><para><preformatted></preformatted></para><para><preformatted>The MTK is developed by researchers and adjuncts to the
+<ulink url="http://www.csrc.sdsu.edu/">Computational Science Research Center (CSRC)</ulink>
+at <ulink url="http://www.sdsu.edu/">San Diego State University (SDSU)</ulink>.</preformatted></para><para><preformatted>Developers are members of:</preformatted></para><para><preformatted>1. Mimetic Numerical Methods Research and Development Group.
+2. Computational Geoscience Research and Development Group.
+3. Ocean Modeling Research and Development Group.</preformatted></para><para><preformatted>Currently the developers are:</preformatted></para><para><preformatted><itemizedlist>
+<listitem><para><bold>Eduardo J. Sanchez, Ph.D. - esanchez at mail dot sdsu dot edu</bold> - </para></listitem><listitem><para>Jose E. Castillo, Ph.D. - jcastillo at mail dot sdsu dot edu</para></listitem><listitem><para>Guillermo F. Miranda, Ph.D. - unigrav at hotmail dot com</para></listitem><listitem><para>Christopher P. Paolini, Ph.D. - paolini at engineering dot sdsu dot edu</para></listitem><listitem><para>Angel Boada.</para></listitem><listitem><para>Johnny Corbino.</para></listitem><listitem><para>Raul Vargas-Navarro.</para></listitem></itemizedlist>
+</preformatted></para><para><preformatted>Finally, please feel free to contact me with suggestions or corrections:</preformatted></para><para><preformatted><bold>Eduardo J. Sanchez, Ph.D. - esanchez at mail dot sdsu dot edu</bold> - </preformatted></para><para><preformatted>Thanks and happy coding!
+</preformatted> </para>    </detaileddescription>
+  </compounddef>
+</doxygen>

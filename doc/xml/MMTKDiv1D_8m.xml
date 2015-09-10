@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="MMTKDiv1D_8m" kind="file">
+    <compoundname>MMTKDiv1D.m</compoundname>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="normal">%<sp/>MMTKDiv1D<sp/>Create<sp/>a<sp/>mimetic<sp/>one-dimensional<sp/>divergence<sp/>operator.</highlight></codeline>
+<codeline lineno="2"><highlight class="normal">%</highlight></codeline>
+<codeline lineno="3"><highlight class="normal">%<sp/><sp/><sp/>div<sp/>=<sp/>MMTKDiv1D(k,<sp/>w,<sp/>e,<sp/>n,<sp/>tau)<sp/>Returns<sp/>the<sp/>divergence<sp/>order<sp/>k<sp/>as<sp/>a<sp/>n<sp/>+<sp/>2</highlight></codeline>
+<codeline lineno="4"><highlight class="normal">%<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>by<sp/>n<sp/>+<sp/>1<sp/>matrix,<sp/>in<sp/>the<sp/>interval<sp/>(w,e)<sp/>with</highlight></codeline>
+<codeline lineno="5"><highlight class="normal">%<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>discretized<sp/>using<sp/>n<sp/>cells<sp/>with<sp/>the<sp/>given</highlight></codeline>
+<codeline lineno="6"><highlight class="normal">%<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>mimetic<sp/>threshold<sp/>tau<sp/>(optional).</highlight></codeline>
+<codeline lineno="7"><highlight class="normal">%</highlight></codeline>
+<codeline lineno="8"><highlight class="normal">%<sp/><sp/><sp/>[s,<sp/>m,<sp/>q]<sp/>=<sp/>MMTKDiv1D(k,<sp/>tau)<sp/><sp/><sp/><sp/>Returns<sp/>the<sp/>divergence<sp/>order<sp/>k<sp/>as<sp/>the</highlight></codeline>
+<codeline lineno="9"><highlight class="normal">%<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>interior<sp/>stencil<sp/>s,<sp/>mimetic<sp/>coefficients<sp/>m,</highlight></codeline>
+<codeline lineno="10"><highlight class="normal">%<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>mimetic<sp/>weights<sp/>q<sp/>and<sp/>mimetic<sp/>threshold<sp/>tau</highlight></codeline>
+<codeline lineno="11"><highlight class="normal">%<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(optional).</highlight></codeline>
+<codeline lineno="12"><highlight class="normal">%</highlight></codeline>
+<codeline lineno="13"><highlight class="normal">%<sp/>For<sp/>more<sp/>information,<sp/>see</highlight></codeline>
+<codeline lineno="14"><highlight class="normal">%<sp/>&lt;a<sp/>href=&quot;http:</highlight><highlight class="comment">//www.csrc.sdsu.edu/mimetic-book/&quot;&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal">%<sp/>Mimetic<sp/>Discretization<sp/>Methods&lt;/a&gt;.</highlight></codeline>
+<codeline lineno="16"><highlight class="normal">%</highlight></codeline>
+    </programlisting>
+    <location file="/home/ejspeiro/Dropbox/MMTK/mexsrc/MMTKDiv1D.m"/>
+  </compounddef>
+</doxygen>

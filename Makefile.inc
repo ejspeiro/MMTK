@@ -168,5 +168,5 @@ endif
 
 DOCGEN      = doxygen
 DOCFILENAME = doc_config.dxcf
-DOC         = $(BASE)/doc
-DOCFILE     = $(BASE)/$(DOCFILENAME)
+DOC         = $(HOME)/Dropbox/MMTK/doc
+DOCFILE     = $(HOME)/Dropbox/MMTK/$(DOCFILENAME)

@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="page_architectures" kind="page">
+    <compoundname>page_architectures</compoundname>
+    <title>Tests and Test Architectures</title>
+    <detaileddescription>
+<para>Tests are given in the <ulink url="files.html">files list</ulink> section. They are provided in the /tests/ folder within the distributed software.</para><para>In this page we intend to make a summary of all of the architectures in where the MTK has been tested. The MTK is intended to be as portable as possible throughout architectures. The following architectures have provided flawless installations of the API and correct execution of the examples:</para><para><preformatted>
+1. Linux 3.2.0-23-generic-pae #36-Ubuntu SMP i386 GNU/Linux
+   Intel(R) Pentium(R) M processor 1.73GHz 2048 KB of cache and stepping of 8
+   gcc version 4.6.3 (Ubuntu/Linaro 4.6.3-1ubuntu5)
+</preformatted></para><para>Further architectures will be tested! </para>    </detaileddescription>
+  </compounddef>
+</doxygen>

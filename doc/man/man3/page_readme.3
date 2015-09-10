@@ -1,0 +1,610 @@
+.TH "page_readme" 3 "Thu Sep 10 2015" "MMTK: MATLAB Wrappers for the Mimetic Methods Toolkit" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+page_readme \- Read Me File and Installation Instructions 
+
+.PP
+.nf
+
+.SH "README File for the Mimetic Methods Toolkit (MTK)"
+.PP
+.fi
+.PP
+.PP
+.PP
+.nf
+.fi
+.PP
+.PP
+.PP
+.nf
+By: \fBEduardo J\&. Sanchez, Ph\&.D\&. - esanchez at mail dot sdsu dot edu\fP
+.PP
+.fi
+.PP
+.PP
+.PP
+.nf
+.SS "1\&. Description"
+.fi
+.PP
+.PP
+.PP
+.nf
+.fi
+.PP
+.PP
+.PP
+.nf
+We define numerical methods that are based on discretizations preserving the
+properties of their continuum counterparts to be \fBmimetic\fP\&.
+.fi
+.PP
+.PP
+.PP
+.nf
+The \fBMimetic Methods Toolkit (MTK)\fP is a C++ library for mimetic numerical
+methods\&. It is arranged as a set of classes for \fBmimetic quadratures\fP,
+\fBmimetic interpolation\fP, and \fBmimetic discretization\fP methods for the
+numerical solution of ordinary and partial differential equations\&.
+.fi
+.PP
+.PP
+.PP
+.nf
+This collection of \fBMATLAB Wrappers for the MTK (MMTK)\fP allows developers to
+invoke the MTK from a MATLAB environment\&.
+.PP
+.nf
+__________________________________________________________________
+.fi
+.PP
+.fi
+.PP
+.PP
+.PP
+.nf
+.SS "2\&. Dependencies"
+.fi
+.PP
+.PP
+.PP
+.nf
+.fi
+.PP
+.PP
+.PP
+.nf
+This README assumes all of these dependencies are installed in the following
+folder:
+.fi
+.PP
+.PP
+.PP
+.nf
+```
+/home/ejspeiro/Libraries/
+```
+.fi
+.PP
+.PP
+.PP
+.nf
+In this version, the MTK optionally uses ATLAS-optimized BLAS and LAPACK
+routines for the internal computation on some of the layers\&. However, ATLAS
+requires both BLAS and LAPACK in order to create their optimized distributions\&.
+Therefore, the following dependencies tree arises:
+.fi
+.PP
+.PP
+.PP
+.nf
+.SS "For Linux and OS X:"
+.fi
+.PP
+.PP
+.PP
+.nf
+.fi
+.PP
+.PP
+.PP
+.nf
+1\&. MATLAB R2014a or greater - Available from: http://www.mathworks.com/
+.fi
+.PP
+.PP
+.PP
+.nf
+1\&. MTK - Available from: http://csrc.sdsu.edu/mtk/
+.PP
+.fi
+.PP
+.PP
+.PP
+.nf
+.SS "3\&. Installation"
+.fi
+.PP
+.PP
+.PP
+.nf
+.fi
+.PP
+.PP
+.PP
+.nf
+The following instructions assume MATLAB R2014a or greater\&.
+.fi
+.PP
+.PP
+.PP
+.nf
+You have two options, either follow the instructions given, \fBexpert install\fP,
+or use the provided \fBpatch file\fP, \fBnaive install\fP\&.
+.fi
+.PP
+.PP
+.PP
+.nf
+.SS "EXPERT PART 1\&. CONFIGURATION OF THE MEX COMPILER\&."
+.fi
+.PP
+.PP
+.PP
+.nf
+.fi
+.PP
+.PP
+.PP
+.nf
+From your MATLAB prompt, type:
+.fi
+.PP
+.PP
+.PP
+.nf
+```
+.RS 4
+.RS 4
+mex -setup C++
+.PP
+.RE
+.PP
+.PP
+.RE
+.PP
+MEX configured to use 'g++' for C++ language compilation\&.
+Warning: The MATLAB C and Fortran API has changed to support MATLAB
+     variables with more than 2^32-1 elements\&. In the near future
+     you will be required to update your code to utilize the
+     new API\&. You can find more information about this at:
+.fi
+.PP
+.PP
+.PP
+.nf
+http://www.mathworks.com/help/matlab/matlab_external/upgrading-mex-files-to-use-
+64-bit-api\&.html\&.
+.RS 4
+.RS 4
+.PP
+.RE
+.PP
+.PP
+.RE
+.PP
+```
+.fi
+.PP
+.PP
+.PP
+.nf
+.SS "EXPERT PART 2\&. CONFIGURATION OF THE MEX COMPILER SETUP FILE\&."
+.fi
+.PP
+.PP
+.PP
+.nf
+.fi
+.PP
+.PP
+.PP
+.nf
+The previous step creates the following file:
+.fi
+.PP
+.PP
+.PP
+.nf
+```
+/home/ejspeiro/\&.matlab/R2014a/mex_C++_glnxa64\&.xml
+```
+.fi
+.PP
+.PP
+.PP
+.nf
+The purpose of this section is to configure the MATLAB R2014a Mex compiler so
+that it can work with the latest C++ standard (C++11)\&.
+.fi
+.PP
+.PP
+.PP
+.nf
+Please execute the following changes on the aforementioned file (line numbers
+may differ):
+.fi
+.PP
+.PP
+.PP
+.nf
+Lines 26 and 27:
+.fi
+.PP
+.PP
+.PP
+.nf
+```
+CMDLINE1='$CXX -std=c++11 -c $DEFINES $INCLUDE $CXXFLAGS $OPTIM $SRC -o $OBJ'
+CMDLINE2='$LDXX -std=c++11 $LDFLAGS $LDTYPE $LINKOPTIM $LINKEXPORT $OBJS $CXXLIBS $LINKLIBS -o $EXE'
+```
+.fi
+.PP
+.PP
+.PP
+.nf
+Line 33:
+.fi
+.PP
+.PP
+.PP
+.nf
+```
+CXXFLAGS='-std=c++11 -ansi -fexceptions -fPIC -fno-omit-frame-pointer -pthread'
+```
+.fi
+.PP
+.PP
+.PP
+.nf
+Line 35 and 26:
+.fi
+.PP
+.PP
+.PP
+.nf
+```
+CXXOPTIMFLAGS='-std=c++11 -O -DNDEBUG'
+CXXDEBUGFLAGS='-std=c++11 -g'
+```
+.fi
+.PP
+.PP
+.PP
+.nf
+Line 38:
+.fi
+.PP
+.PP
+.PP
+.nf
+```
+LDXX='gfortran'
+```
+.fi
+.PP
+.PP
+.PP
+.nf
+Line 59:
+.fi
+.PP
+.PP
+.PP
+.nf
+```
+CXXFLAGS='-std=c++11 -ansi -pthread'
+```
+.fi
+.PP
+.PP
+.PP
+.nf
+.SS "NAIVE PART 1\&. CONFIGURATION OF THE MEX COMPILER\&."
+.fi
+.PP
+.PP
+.PP
+.nf
+.fi
+.PP
+.PP
+.PP
+.nf
+From your MATLAB prompt, type:
+.fi
+.PP
+.PP
+.PP
+.nf
+```
+.RS 4
+.RS 4
+mex -setup C++
+.PP
+.RE
+.PP
+.PP
+.RE
+.PP
+MEX configured to use 'g++' for C++ language compilation\&.
+Warning: The MATLAB C and Fortran API has changed to support MATLAB
+     variables with more than 2^32-1 elements\&. In the near future
+     you will be required to update your code to utilize the
+     new API\&. You can find more information about this at:
+.fi
+.PP
+.PP
+.PP
+.nf
+http://www.mathworks.com/help/matlab/matlab_external/upgrading-mex-files-to-use-
+64-bit-api\&.html\&.
+.RS 4
+.RS 4
+.PP
+.RE
+.PP
+.PP
+.RE
+.PP
+```
+.fi
+.PP
+.PP
+.PP
+.nf
+.SS "NAIVE PART 2\&. CONFIGURATION OF THE MEX COMPILER SETUP FILE\&."
+.fi
+.PP
+.PP
+.PP
+.nf
+.fi
+.PP
+.PP
+.PP
+.nf
+```
+cd $HOME/\&.matlab/R2014a
+chmod +w mex_C++_glnxa64\&.xml
+patch < mex_C++_glnxa64\&.patch
+chmod -w mex_C++_glnxa64\&.xml
+```
+Exit terminal, and restart MATLAB\&. You can use C++11 to create MEX files now!
+.fi
+.PP
+.PP
+.PP
+.nf
+.SS "PART 3: CONFIGURATION OF THE MAKEFILE\&."
+.fi
+.PP
+.PP
+.PP
+.nf
+.fi
+.PP
+.PP
+.PP
+.nf
+The following steps are required the build and test the MTK\&. Please use the
+accompanying \fC\fBMakefile\&.inc\fP\fP file, which should provide a solid template to
+start with\&. The following command provides help on the options for make:
+.fi
+.PP
+.PP
+.PP
+.nf
+```
+.SS "$ make help
+"
+.fi
+.PP
+.PP
+.PP
+.nf
+
+Makefile for the MMTK\&.
+.fi
+.PP
+.PP
+.PP
+.nf
+Options are:
+.IP "\(bu" 2
+all: builds he library, the tests, and examples\&.
+.PP
+.fi
+.PP
+.PP
+.PP
+.nf
+.IP "\(bu" 2
+gendoc: generates the documentation for the library\&.
+.PP
+.fi
+.PP
+.PP
+.PP
+.nf
+.SS "- clean: cleans ALL the generated files\&.
+"
+.fi
+.PP
+.PP
+.PP
+.nf
+
+```
+.fi
+.PP
+.PP
+.PP
+.nf
+.SS "PART 4\&. BUILD THE MMTK\&."
+.fi
+.PP
+.PP
+.PP
+.nf
+.fi
+.PP
+.PP
+.PP
+.nf
+From your shell, at the base folder of the MMTK, just type:
+.fi
+.PP
+.PP
+.PP
+.nf
+```
+make
+```
+.fi
+.PP
+.PP
+.PP
+.nf
+If successful you'll read:
+.fi
+.PP
+.PP
+.PP
+.nf
+```
+----- Library created! Check in /home/ejspeiro/Dropbox/MTK/lib
+```
+.PP
+.fi
+.PP
+.PP
+.PP
+.nf
+.SS "4\&. Frequently Asked Questions"
+.fi
+.PP
+.PP
+.PP
+.nf
+.fi
+.PP
+.PP
+.PP
+.nf
+Q: Why haven't you guys implemented GBS to build the library?
+A: I'm on it as we speak! ;)
+.fi
+.PP
+.PP
+.PP
+.nf
+Q: When will the other flavors be ready?
+A: Soon! I'm working on getting help on developing those\&.
+.fi
+.PP
+.PP
+.PP
+.nf
+Q: Is there any main reference when it comes to the theory on Mimetic Methods?
+A: Yes! Check: http://www.csrc.sdsu.edu/mimetic-book
+.fi
+.PP
+.PP
+.PP
+.nf
+Q: Do I need to generate the documentation myself?
+A: You can if you want to\&.\&.\&. but if you DO NOT want to, just go to our website\&.
+.PP
+.fi
+.PP
+.PP
+.PP
+.nf
+.SS "5\&. Contact, Support, and Credits"
+.fi
+.PP
+.PP
+.PP
+.nf
+.fi
+.PP
+.PP
+.PP
+.nf
+The MTK is developed by researchers and adjuncts to the
+\fCComputational Science Research Center (CSRC)\fP
+at \fCSan Diego State University (SDSU)\fP\&.
+.fi
+.PP
+.PP
+.PP
+.nf
+Developers are members of:
+.fi
+.PP
+.PP
+.PP
+.nf
+1\&. Mimetic Numerical Methods Research and Development Group\&.
+2\&. Computational Geoscience Research and Development Group\&.
+3\&. Ocean Modeling Research and Development Group\&.
+.fi
+.PP
+.PP
+.PP
+.nf
+Currently the developers are:
+.fi
+.PP
+.PP
+.PP
+.nf
+.IP "\(bu" 2
+\fBEduardo J\&. Sanchez, Ph\&.D\&. - esanchez at mail dot sdsu dot edu\fP - 
+.IP "\(bu" 2
+Jose E\&. Castillo, Ph\&.D\&. - jcastillo at mail dot sdsu dot edu
+.IP "\(bu" 2
+Guillermo F\&. Miranda, Ph\&.D\&. - unigrav at hotmail dot com
+.IP "\(bu" 2
+Christopher P\&. Paolini, Ph\&.D\&. - paolini at engineering dot sdsu dot edu
+.IP "\(bu" 2
+Angel Boada\&.
+.IP "\(bu" 2
+Johnny Corbino\&.
+.IP "\(bu" 2
+Raul Vargas-Navarro\&.
+.PP
+.fi
+.PP
+.PP
+.PP
+.nf
+Finally, please feel free to contact me with suggestions or corrections:
+.fi
+.PP
+.PP
+.PP
+.nf
+\fBEduardo J\&. Sanchez, Ph\&.D\&. - esanchez at mail dot sdsu dot edu\fP - 
+.fi
+.PP
+.PP
+.PP
+.nf
+Thanks and happy coding!
+.fi
+.PP
+ 

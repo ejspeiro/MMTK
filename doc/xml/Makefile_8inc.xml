@@ -1,0 +1,185 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="Makefile_8inc" kind="file">
+    <compoundname>Makefile.inc</compoundname>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#<sp/>Makefile<sp/>setup<sp/>file<sp/>for<sp/>MMTK.</highlight></codeline>
+<codeline lineno="2"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal">SHELL<sp/>:=<sp/>/bin/bash</highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/>Please<sp/>set<sp/>the<sp/>following<sp/>variables<sp/>up:</highlight></codeline>
+<codeline lineno="6"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/><sp/><sp/>2.<sp/>Absolute<sp/>path<sp/>to<sp/>base<sp/>directory<sp/>of<sp/>the<sp/>MTK...<sp/>where<sp/>is<sp/>the<sp/>MTK?</highlight></codeline>
+<codeline lineno="8"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#<sp/><sp/><sp/>__________________________________________________________________</highlight></codeline>
+<codeline lineno="9"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal">BASE<sp/>=<sp/>/home/ejspeiro/Dropbox/MTK</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/><sp/><sp/>2.<sp/>The<sp/>machine<sp/>(platform)<sp/>identifier<sp/>and<sp/>required<sp/>precision.</highlight></codeline>
+<codeline lineno="13"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#<sp/><sp/><sp/>__________________________________________________________________</highlight></codeline>
+<codeline lineno="14"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/>Options<sp/>are:</highlight></codeline>
+<codeline lineno="16"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#<sp/>-<sp/>LINUX:<sp/>A<sp/>LINUX<sp/>box<sp/>installation.</highlight></codeline>
+<codeline lineno="17"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#<sp/>-<sp/>OSX:<sp/>Uses<sp/>OS<sp/>X<sp/>optimized<sp/>solvers.</highlight></codeline>
+<codeline lineno="18"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal">PLAT<sp/>=<sp/>LINUX</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/>Options<sp/>are:</highlight></codeline>
+<codeline lineno="22"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#<sp/>-<sp/>SINGLE:<sp/>Use<sp/>4<sp/>B<sp/>floating<sp/>point<sp/>numbers.</highlight></codeline>
+<codeline lineno="23"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#<sp/>-<sp/>DOUBLE:<sp/>Use<sp/>8<sp/>B<sp/>floating<sp/>point<sp/>numbers.</highlight></codeline>
+<codeline lineno="24"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal">PRECISION<sp/>=<sp/>DOUBLE</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/><sp/><sp/>3.<sp/>Optimized<sp/>solvers<sp/>and<sp/>operations<sp/>by<sp/>means<sp/>of<sp/>ATLAS<sp/>in<sp/>Linux?</highlight></codeline>
+<codeline lineno="28"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#<sp/><sp/><sp/>__________________________________________________________________</highlight></codeline>
+<codeline lineno="29"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/>If<sp/>you<sp/>have<sp/>selected<sp/>OSX<sp/>in<sp/>step<sp/>1,<sp/>then<sp/>you<sp/>don&apos;t<sp/>need<sp/>to<sp/>worry<sp/>about<sp/>this.</highlight></codeline>
+<codeline lineno="31"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/>Options<sp/>are<sp/>ON<sp/>xor<sp/>OFF:</highlight></codeline>
+<codeline lineno="33"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal">ATL_OPT<sp/>=<sp/>OFF</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/><sp/><sp/>4.<sp/>Paths<sp/>to<sp/>dependencies<sp/>(header<sp/>files<sp/>for<sp/>compiling).</highlight></codeline>
+<codeline lineno="37"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#<sp/><sp/><sp/>__________________________________________________________________</highlight></codeline>
+<codeline lineno="38"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/>GLPK<sp/>include<sp/>path<sp/>(soon<sp/>to<sp/>go):</highlight></codeline>
+<codeline lineno="40"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="41"><highlight class="normal">GLPK_INC<sp/>=<sp/>$(HOME)/Libraries/glpk-4.55/include</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight></codeline>
+<codeline lineno="43"><highlight class="normal">#<sp/>Linux:<sp/>If<sp/>ATLAS<sp/>optimization<sp/>is<sp/>ON,<sp/>users<sp/>should<sp/>only<sp/>provide<sp/>the<sp/>path<sp/>to</highlight></codeline>
+<codeline lineno="44"><highlight class="normal">#<sp/>ATLAS:</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"></highlight></codeline>
+<codeline lineno="46"><highlight class="normal">ATLAS_INC<sp/>=<sp/>$(HOME)/Libraries/ATLAS_3.8.4-CORE/include</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"></highlight></codeline>
+<codeline lineno="48"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/>OS<sp/>X:<sp/>Do<sp/>nothing.</highlight></codeline>
+<codeline lineno="49"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="50"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/><sp/><sp/>5.<sp/>Paths<sp/>to<sp/>dependencies<sp/>(archive<sp/>files<sp/>for<sp/>(static)<sp/>linking).</highlight></codeline>
+<codeline lineno="51"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#<sp/><sp/><sp/>__________________________________________________________________</highlight></codeline>
+<codeline lineno="52"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="53"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/>GLPK<sp/>linking<sp/>path<sp/>(soon<sp/>to<sp/>go):</highlight></codeline>
+<codeline lineno="54"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="55"><highlight class="normal">GLPK_LIB<sp/>=<sp/>$(HOME)/Libraries/glpk-4.55/lib/libglpk.a</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"></highlight></codeline>
+<codeline lineno="57"><highlight class="normal">#<sp/>If<sp/>optimization<sp/>is<sp/>OFF,<sp/>then<sp/>provide<sp/>the<sp/>paths<sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"></highlight></codeline>
+<codeline lineno="59"><highlight class="normal">BLAS_LIB<sp/>=<sp/>$(HOME)/Libraries/BLAS/libblas.a</highlight></codeline>
+<codeline lineno="60"><highlight class="normal">LAPACK_LIB<sp/>=<sp/>$(HOME)/Libraries/lapack-3.4.1/liblapack.a</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"></highlight></codeline>
+<codeline lineno="62"><highlight class="normal">#<sp/>WARNING:<sp/>Vendor<sp/>libraries<sp/>should<sp/>be<sp/>used<sp/>whenever<sp/>they<sp/>are<sp/>available.</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"></highlight></codeline>
+<codeline lineno="64"><highlight class="normal">#<sp/>However,<sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>optimization<sp/>is<sp/>ON,<sp/>please<sp/>provide<sp/>the<sp/>path<sp/>the<sp/>ATLAS</highlight><highlight class="stringliteral">&apos;<sp/>archive:</highlight></codeline>
+<codeline lineno="65"><highlight class="stringliteral"></highlight></codeline>
+<codeline lineno="66"><highlight class="stringliteral">ATLAS_LIB<sp/><sp/><sp/>=<sp/>$(HOME)/Libraries/ATLAS_3.8.4-CORE/ATLAS_3.8.4-BUILD-Citadel/lib</highlight></codeline>
+<codeline lineno="67"><highlight class="stringliteral"></highlight></codeline>
+<codeline lineno="68"><highlight class="stringliteral">#<sp/><sp/><sp/>6.<sp/>Compiler<sp/>and<sp/>its<sp/>flags.</highlight></codeline>
+<codeline lineno="69"><highlight class="stringliteral">#<sp/><sp/><sp/>__________________________________________________________________</highlight></codeline>
+<codeline lineno="70"><highlight class="stringliteral"></highlight></codeline>
+<codeline lineno="71"><highlight class="stringliteral">#<sp/>Debug<sp/>Level.<sp/>Options<sp/>are:</highlight></codeline>
+<codeline lineno="72"><highlight class="stringliteral">#<sp/>0.<sp/>NO<sp/>debug<sp/>at<sp/>all<sp/>NOR<sp/>any<sp/>run-time<sp/>checks...<sp/>be<sp/>cautious!</highlight></codeline>
+<codeline lineno="73"><highlight class="stringliteral">#<sp/>1.<sp/>Verbose<sp/>(execution<sp/>messages)<sp/>AND<sp/>run-time<sp/>checks.</highlight></codeline>
+<codeline lineno="74"><highlight class="stringliteral">#<sp/>2.<sp/>Level<sp/>1<sp/>plus<sp/>intermediate<sp/>scalar-valued<sp/>results.</highlight></codeline>
+<codeline lineno="75"><highlight class="stringliteral">#<sp/>3.<sp/>Level<sp/>2<sp/>plus<sp/>intermediate<sp/>array-valued<sp/>results.</highlight></codeline>
+<codeline lineno="76"><highlight class="stringliteral"></highlight></codeline>
+<codeline lineno="77"><highlight class="stringliteral">DEBUG_LEVEL<sp/>=<sp/>3</highlight></codeline>
+<codeline lineno="78"><highlight class="stringliteral"></highlight></codeline>
+<codeline lineno="79"><highlight class="stringliteral">#<sp/>Flags<sp/>recommended<sp/>for<sp/>release<sp/>code:</highlight></codeline>
+<codeline lineno="80"><highlight class="stringliteral"></highlight></codeline>
+<codeline lineno="81"><highlight class="stringliteral">CCFLAGS<sp/>=<sp/>-O2</highlight></codeline>
+<codeline lineno="82"><highlight class="stringliteral"></highlight></codeline>
+<codeline lineno="83"><highlight class="stringliteral">#<sp/>Flags<sp/>recommended<sp/>for<sp/>debugging<sp/>code:</highlight></codeline>
+<codeline lineno="84"><highlight class="stringliteral"></highlight></codeline>
+<codeline lineno="85"><highlight class="stringliteral">CCFLAGS<sp/>=</highlight></codeline>
+<codeline lineno="86"><highlight class="stringliteral"></highlight></codeline>
+<codeline lineno="87"><highlight class="stringliteral">#<sp/><sp/><sp/>7.<sp/>Archiver,<sp/>its<sp/>flags,<sp/>and<sp/>ranlib:</highlight></codeline>
+<codeline lineno="88"><highlight class="stringliteral">#<sp/><sp/><sp/>__________________________________________________________________</highlight></codeline>
+<codeline lineno="89"><highlight class="stringliteral"></highlight></codeline>
+<codeline lineno="90"><highlight class="stringliteral">ARCH<sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>ar</highlight></codeline>
+<codeline lineno="91"><highlight class="stringliteral">ARCHFLAGS<sp/>=<sp/>cr</highlight></codeline>
+<codeline lineno="92"><highlight class="stringliteral"></highlight></codeline>
+<codeline lineno="93"><highlight class="stringliteral">#<sp/>If<sp/>your<sp/>system<sp/>does<sp/>not<sp/>have<sp/>&quot;ranlib&quot;<sp/>then<sp/>set:<sp/>&quot;RANLIB<sp/>=<sp/>echo&quot;:</highlight></codeline>
+<codeline lineno="94"><highlight class="stringliteral"></highlight></codeline>
+<codeline lineno="95"><highlight class="stringliteral">RANLIB<sp/>=<sp/>echo</highlight></codeline>
+<codeline lineno="96"><highlight class="stringliteral"></highlight></codeline>
+<codeline lineno="97"><highlight class="stringliteral">#<sp/>But,<sp/>if<sp/>possible:</highlight></codeline>
+<codeline lineno="98"><highlight class="stringliteral"></highlight></codeline>
+<codeline lineno="99"><highlight class="stringliteral">RANLIB<sp/>=<sp/>ranlib</highlight></codeline>
+<codeline lineno="100"><highlight class="stringliteral"></highlight></codeline>
+<codeline lineno="101"><highlight class="stringliteral">#<sp/><sp/><sp/>8.<sp/>Valgrind&apos;</highlight><highlight class="normal">s<sp/>memcheck<sp/>options:</highlight></codeline>
+<codeline lineno="102"><highlight class="normal">#<sp/><sp/><sp/>__________________________________________________________________</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"></highlight></codeline>
+<codeline lineno="104"><highlight class="normal">MEMCHECK_OPTS<sp/>=<sp/>-v<sp/>--tool=memcheck<sp/>--leak-check=full<sp/>--show-leak-kinds=<ref refid="Div1D_8m_1a4603254d9990f7140c024d51302d1a8f" kindref="member">all</ref><sp/>\</highlight></codeline>
+<codeline lineno="105"><highlight class="normal">--track-origins=yes<sp/>--freelist-vol=20000000</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"></highlight></codeline>
+<codeline lineno="107"><highlight class="normal">#<sp/>Done!</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"></highlight></codeline>
+<codeline lineno="109"><highlight class="normal">#<sp/><sp/><sp/>__________________________________________________________________</highlight></codeline>
+<codeline lineno="110"><highlight class="normal">#<sp/><sp/><sp/>__________________________________________________________________</highlight></codeline>
+<codeline lineno="111"><highlight class="normal">#<sp/><sp/><sp/>__________________________________________________________________</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"></highlight></codeline>
+<codeline lineno="113"><highlight class="normal">#<sp/><sp/><sp/>MMTK-related.</highlight></codeline>
+<codeline lineno="114"><highlight class="normal">#<sp/><sp/><sp/>__________________________________________________________________</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"></highlight></codeline>
+<codeline lineno="116"><highlight class="normal">SRC<sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>$(BASE)/src</highlight></codeline>
+<codeline lineno="117"><highlight class="normal">INCLUDE<sp/><sp/><sp/>=<sp/>$(BASE)/include</highlight></codeline>
+<codeline lineno="118"><highlight class="normal">LIB<sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>$(BASE)/lib</highlight></codeline>
+<codeline lineno="119"><highlight class="normal">MTK_LIB<sp/><sp/><sp/>=<sp/>$(LIB)/libmtk.a</highlight></codeline>
+<codeline lineno="120"><highlight class="normal">TESTS<sp/><sp/><sp/><sp/><sp/>=<sp/>$(BASE)/tests</highlight></codeline>
+<codeline lineno="121"><highlight class="normal">EXAMPLES<sp/><sp/>=<sp/>$(BASE)/examples</highlight></codeline>
+<codeline lineno="122"><highlight class="normal"></highlight></codeline>
+<codeline lineno="123"><highlight class="normal">#<sp/><sp/><sp/>Compiling-related.</highlight></codeline>
+<codeline lineno="124"><highlight class="normal">#<sp/><sp/><sp/>__________________________________________________________________</highlight></codeline>
+<codeline lineno="125"><highlight class="normal"></highlight></codeline>
+<codeline lineno="126"><highlight class="normal">CC<sp/>=<sp/>mex</highlight></codeline>
+<codeline lineno="127"><highlight class="normal"></highlight></codeline>
+<codeline lineno="128"><highlight class="normal">CCFLAGS<sp/>+=<sp/>-largeArrayDims<sp/>-g</highlight></codeline>
+<codeline lineno="129"><highlight class="normal"></highlight></codeline>
+<codeline lineno="130"><highlight class="normal">ifeq<sp/>($(PRECISION),DOUBLE)</highlight></codeline>
+<codeline lineno="131"><highlight class="normal"><sp/><sp/>CCFLAGS<sp/>+=<sp/>-DMTK_PRECISION_DOUBLE</highlight></codeline>
+<codeline lineno="132"><highlight class="normal"></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="133"><highlight class="normal"><sp/><sp/>CCFLAGS<sp/>+=<sp/>-DMTK_PRECISION_SINGLE</highlight></codeline>
+<codeline lineno="134"><highlight class="normal">endif</highlight></codeline>
+<codeline lineno="135"><highlight class="normal"></highlight></codeline>
+<codeline lineno="136"><highlight class="normal">CCFLAGS<sp/>+=<sp/>-DMTK_DEBUG_LEVEL=$(DEBUG_LEVEL)<sp/>-I$(INCLUDE)</highlight></codeline>
+<codeline lineno="137"><highlight class="normal"></highlight></codeline>
+<codeline lineno="138"><highlight class="normal">#<sp/>Only<sp/>the<sp/>GLPK<sp/>is<sp/>included<sp/>because<sp/>the<sp/>other<sp/>dependencies<sp/>are<sp/>coded<sp/>in<sp/>Fortran.</highlight></codeline>
+<codeline lineno="139"><highlight class="normal"></highlight></codeline>
+<codeline lineno="140"><highlight class="normal">ifeq<sp/>($(ATL_OPT),ON)</highlight></codeline>
+<codeline lineno="141"><highlight class="normal"><sp/><sp/>CCFLAGS<sp/><sp/>+=<sp/>-I$(GLPK_INC)<sp/>$(ATLAS_INC)</highlight></codeline>
+<codeline lineno="142"><highlight class="normal">else</highlight></codeline>
+<codeline lineno="143"><highlight class="normal"><sp/><sp/>CCFLAGS<sp/><sp/>+=<sp/>-I$(GLPK_INC)</highlight></codeline>
+<codeline lineno="144"><highlight class="normal">endif</highlight></codeline>
+<codeline lineno="145"><highlight class="normal"></highlight></codeline>
+<codeline lineno="146"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/><sp/><sp/>Linking-related.</highlight></codeline>
+<codeline lineno="147"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#<sp/><sp/><sp/>__________________________________________________________________</highlight></codeline>
+<codeline lineno="148"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="149"><highlight class="normal">NOOPT_LIBS<sp/><sp/>=<sp/>$(LAPACK_LIB)<sp/>$(GLPK_LIB)<sp/>$(BLAS_LIB)<sp/>-lstdc++<sp/>-lgfortran</highlight></codeline>
+<codeline lineno="150"><highlight class="normal"></highlight></codeline>
+<codeline lineno="151"><highlight class="normal">OPT_LIBS<sp/>=<sp/>-L$(ATLAS_LIB)<sp/>-latlas<sp/>-llapack<sp/>-lblas<sp/>-lm<sp/>-latlas<sp/>\</highlight></codeline>
+<codeline lineno="152"><highlight class="normal">-lstdc++<sp/>-lgfortran</highlight></codeline>
+<codeline lineno="153"><highlight class="normal"></highlight></codeline>
+<codeline lineno="154"><highlight class="normal">LIBS<sp/>=<sp/>$(MTK_LIB)</highlight></codeline>
+<codeline lineno="155"><highlight class="normal"></highlight></codeline>
+<codeline lineno="156"><highlight class="normal">ifeq<sp/>($(PLAT),OSX)</highlight></codeline>
+<codeline lineno="157"><highlight class="normal"><sp/><sp/>LIBS<sp/><sp/>+=<sp/>-framework<sp/>Accelerate<sp/>$(GLPK_LIB)</highlight></codeline>
+<codeline lineno="158"><highlight class="normal"></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="159"><highlight class="normal"><sp/><sp/>ifeq<sp/>($(ATL_OPT),ON)</highlight></codeline>
+<codeline lineno="160"><highlight class="normal"><sp/><sp/><sp/><sp/>LIBS<sp/>+=<sp/>$(OPT_LIBS)</highlight></codeline>
+<codeline lineno="161"><highlight class="normal"><sp/><sp/>else</highlight></codeline>
+<codeline lineno="162"><highlight class="normal"><sp/><sp/><sp/><sp/>LIBS<sp/>+=<sp/>$(NOOPT_LIBS)</highlight></codeline>
+<codeline lineno="163"><highlight class="normal"><sp/><sp/>endif</highlight></codeline>
+<codeline lineno="164"><highlight class="normal">endif</highlight></codeline>
+<codeline lineno="165"><highlight class="normal"></highlight></codeline>
+<codeline lineno="166"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/><sp/><sp/>Documentation-related.</highlight></codeline>
+<codeline lineno="167"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#<sp/><sp/><sp/>__________________________________________________________________</highlight></codeline>
+<codeline lineno="168"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="169"><highlight class="normal">DOCGEN<sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>doxygen</highlight></codeline>
+<codeline lineno="170"><highlight class="normal">DOCFILENAME<sp/>=<sp/>doc_config.dxcf</highlight></codeline>
+<codeline lineno="171"><highlight class="normal">DOC<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>$(HOME)/Dropbox/MMTK/doc</highlight></codeline>
+<codeline lineno="172"><highlight class="normal">DOCFILE<sp/><sp/><sp/><sp/><sp/>=<sp/>$(HOME)/Dropbox/MMTK/$(DOCFILENAME)</highlight></codeline>
+    </programlisting>
+    <location file="/home/ejspeiro/Dropbox/MMTK/Makefile.inc"/>
+  </compounddef>
+</doxygen>

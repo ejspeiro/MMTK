@@ -1,0 +1,267 @@
+\hypertarget{MMTKDiv1D_8cc}{\section{M\-M\-T\-K\-Div1\-D.\-cc}
+\label{MMTKDiv1D_8cc}\index{mexsrc/\-M\-M\-T\-K\-Div1\-D.\-cc@{mexsrc/\-M\-M\-T\-K\-Div1\-D.\-cc}}
+}
+
+\begin{DoxyCode}
+00001 
+00008 \textcolor{comment}{/*}
+00009 \textcolor{comment}{Copyright (C) 2015, Computational Science Research Center, San Diego State}
+00010 \textcolor{comment}{University. All rights reserved.}
+00011 \textcolor{comment}{}
+00012 \textcolor{comment}{Redistribution and use in source and binary forms, with or without modification,}
+00013 \textcolor{comment}{are permitted provided that the following conditions are met:}
+00014 \textcolor{comment}{}
+00015 \textcolor{comment}{1. Modifications to source code should be reported to: esanchez@mail.sdsu.edu}
+00016 \textcolor{comment}{and a copy of the modified files should be reported once modifications are}
+00017 \textcolor{comment}{completed. Documentation related to said modifications should be included.}
+00018 \textcolor{comment}{}
+00019 \textcolor{comment}{2. Redistributions of source code must be done through direct}
+00020 \textcolor{comment}{downloads from the project's GitHub page: http://www.csrc.sdsu.edu/mtk}
+00021 \textcolor{comment}{}
+00022 \textcolor{comment}{3. Redistributions of source code must retain the above copyright notice, this}
+00023 \textcolor{comment}{list of conditions and the following disclaimer.}
+00024 \textcolor{comment}{}
+00025 \textcolor{comment}{4. Redistributions in binary form must reproduce the above copyright notice,}
+00026 \textcolor{comment}{this list of conditions and the following disclaimer in the documentation and/or}
+00027 \textcolor{comment}{other materials provided with the distribution.}
+00028 \textcolor{comment}{}
+00029 \textcolor{comment}{5. Usage of the binary form on proprietary applications shall require explicit}
+00030 \textcolor{comment}{prior written permission from the the copyright holders.}
+00031 \textcolor{comment}{}
+00032 \textcolor{comment}{6. Neither the name of the copyright holder nor the names of its contributors}
+00033 \textcolor{comment}{may be used to endorse or promote products derived from this software without}
+00034 \textcolor{comment}{specific prior written permission.}
+00035 \textcolor{comment}{}
+00036 \textcolor{comment}{The copyright holders provide no reassurances that the source code provided does}
+00037 \textcolor{comment}{not infringe any patent, copyright, or any other intellectual property rights of}
+00038 \textcolor{comment}{third parties. The copyright holders disclaim any liability to any recipient for}
+00039 \textcolor{comment}{claims brought against recipient by any third party for infringement of that}
+00040 \textcolor{comment}{parties intellectual property rights.}
+00041 \textcolor{comment}{}
+00042 \textcolor{comment}{THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND}
+00043 \textcolor{comment}{ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED}
+00044 \textcolor{comment}{WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE}
+00045 \textcolor{comment}{DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR}
+00046 \textcolor{comment}{ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES}
+00047 \textcolor{comment}{(INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;}
+00048 \textcolor{comment}{LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON}
+00049 \textcolor{comment}{ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT}
+00050 \textcolor{comment}{(INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS}
+00051 \textcolor{comment}{SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.}
+00052 \textcolor{comment}{*/}
+00053 
+00054 \textcolor{preprocessor}{#if \_\_cplusplus == 201103L}
+00055 \textcolor{preprocessor}{}
+00056 \textcolor{preprocessor}{#include <iostream>}
+00057 \textcolor{preprocessor}{#include <iomanip>}
+00058 \textcolor{preprocessor}{#include <cmath>}
+00059 \textcolor{preprocessor}{#include <cstring>}
+00060 
+00061 \textcolor{preprocessor}{#include "mex.h"}
+00062 
+00063 \textcolor{preprocessor}{#include "mtk.h"}
+00064 
+00065 \textcolor{keyword}{using namespace }std;
+00066 
+00067 \textcolor{keyword}{static} \textcolor{keywordtype}{int} MTKDiv1D(\textcolor{keywordtype}{int} order\_accuracy,
+00068                     mtk::Real tau,
+00069                     mtk::Real *outS,
+00070                     mtk::Real *outM,
+00071                     mtk::Real *outQ);
+00072 
+00073 \textcolor{keyword}{static} \textcolor{keywordtype}{int} MTKDiv1DReturnAsDenseMatrix(\textcolor{keywordtype}{int} order\_accuracy,
+00074                                        mtk::Real west\_bndy\_x,
+00075                                        mtk::Real east\_bndy\_x,
+00076                                        \textcolor{keywordtype}{int} num\_cells,
+00077                                        mtk::Real tau,
+00078                                        mtk::Real *outMatrix);
+00079 
+00080 \textcolor{keywordtype}{void} mexFunction(\textcolor{keywordtype}{int} nlhs, mxArray *plhs[], \textcolor{keywordtype}{int} nrhs, \textcolor{keyword}{const} mxArray *prhs[]) \{
+00081 
+00082   \textcolor{keywordtype}{int} order\_accuracy;  \textcolor{comment}{// kk inside MTK.}
+00083   \textcolor{keywordtype}{int} num\_cells;       \textcolor{comment}{// scaler to matrix size.}
+00084 
+00085   mtk::Real *outMatrix;  \textcolor{comment}{// Where to place our output.}
+00086   mtk::Real *outS;       \textcolor{comment}{// output Stencil.}
+00087   mtk::Real *outQ;       \textcolor{comment}{// output Weights.}
+00088   mtk::Real *outM;       \textcolor{comment}{// output Mimetic Coefficients.}
+00089 
+00090   mtk::Real west\_bndy\_x; \textcolor{comment}{// Start of the Interval.}
+00091   mtk::Real east\_bndy\_x; \textcolor{comment}{// End of the Interval.}
+00092   mtk::Real tau;         \textcolor{comment}{// Mimetic tolerance (optional).}
+00093 
+00094 \textcolor{comment}{//   if (nrhs >= 1 && nrhs <= 2) \{}
+00095 \textcolor{comment}{//}
+00096 \textcolor{comment}{//     order\_accuracy = mxGetScalar(prhs[0]);}
+00097 \textcolor{comment}{//}
+00098 \textcolor{comment}{//     if (nrhs == 1 && order\_accuracy >= 8) \{}
+00099 \textcolor{comment}{//       std::cout << "Default mimetic threshold set as 1e-6."<<std::endl;}
+00100 \textcolor{comment}{//       tau = 1e-6;}
+00101 \textcolor{comment}{//     \}}
+00102 \textcolor{comment}{//     if (nrhs == 2 && order\_accuracy < 8) \{}
+00103 \textcolor{comment}{//       std::cout << "Order of accuracy does not need mimetic threshold. If provided it will be
+       ignored."<<std::endl;}
+00104 \textcolor{comment}{//       tau = mxGetScalar(prhs[1]);}
+00105 \textcolor{comment}{//     \}}
+00106 \textcolor{comment}{//     if(nrhs == 2 && order\_accuracy >= 8) \{}
+00107 \textcolor{comment}{//       tau = mxGetScalar(prhs[1]);}
+00108 \textcolor{comment}{//     \}}
+00109 \textcolor{comment}{//     if (nlhs != 3) \{}
+00110 \textcolor{comment}{//       mexErrMsgIdAndTxt("MyToolbox:arrayProduct:nlhs","3 outputs are needed: S, M, Q.");}
+00111 \textcolor{comment}{//     \}}
+00112 \textcolor{comment}{//     if (nlhs == 3) \{}
+00113 \textcolor{comment}{//}
+00114 \textcolor{comment}{//       // Stencil}
+00115 \textcolor{comment}{//       plhs[0] = mxCreateDoubleMatrix((mwSize) 1,(mwSize) order\_accuracy,mxREAL);}
+00116 \textcolor{comment}{//}
+00117 \textcolor{comment}{//       //Mimetic coefficients Rows}
+00118 \textcolor{comment}{//       plhs[1] = mxCreateDoubleMatrix( (mwSize) (order\_accuracy/2-1), (mwSize) (3*order\_accuracy/ 2),
+       mxREAL);}
+00119 \textcolor{comment}{//}
+00120 \textcolor{comment}{//       // Weights}
+00121 \textcolor{comment}{//       plhs[2] = mxCreateDoubleMatrix((mwSize) 1,(mwSize) order\_accuracy, mxREAL);}
+00122 \textcolor{comment}{//}
+00123 \textcolor{comment}{//       outS = mxGetPr(plhs[0]);}
+00124 \textcolor{comment}{//       outM =mxGetPr(plhs[1]);}
+00125 \textcolor{comment}{//       outQ = mxGetPr(plhs[2]);}
+00126 \textcolor{comment}{//}
+00127 \textcolor{comment}{//       mtk\_1d\_div(order\_accuracy, tau, outS ,outM,outQ);}
+00128 \textcolor{comment}{//     \}}
+00129 \textcolor{comment}{//   \} else \{}
+00130 \textcolor{comment}{//}
+00131 \textcolor{comment}{//     if (nrhs > 5) \{}
+00132 \textcolor{comment}{//       mexErrMsgIdAndTxt("MyToolbox:arrayProduct:nrhs", "At most 5 inputs are permited: (order, a, b,
+       cells, tau).");}
+00133 \textcolor{comment}{//     \}}
+00134 \textcolor{comment}{//}
+00135 \textcolor{comment}{//     if (nrhs < 4) \{}
+00136 \textcolor{comment}{//       mexErrMsgIdAndTxt("MyToolbox:arrayProduct:nrhs", "At leats 4 inputs are required: (order, a, b,
+       cells).");}
+00137 \textcolor{comment}{//     \}}
+00138 \textcolor{comment}{//}
+00139 \textcolor{comment}{//     if (nlhs != 1) \{}
+00140 \textcolor{comment}{//       mexErrMsgIdAndTxt("MyToolbox:arrayProduct:nlhs","One output is needed.");}
+00141 \textcolor{comment}{//     \}}
+00142 \textcolor{comment}{//}
+00143 \textcolor{comment}{//     order\_accuracy = mxGetScalar(prhs[0]);}
+00144 \textcolor{comment}{//}
+00145 \textcolor{comment}{//     west\_bndy\_x = mxGetScalar(prhs[1]);}
+00146 \textcolor{comment}{//}
+00147 \textcolor{comment}{//     east\_bndy\_x = mxGetScalar(prhs[2]);}
+00148 \textcolor{comment}{//}
+00149 \textcolor{comment}{//     num\_cells = mxGetScalar(prhs[3]);}
+00150 \textcolor{comment}{//}
+00151 \textcolor{comment}{//     if (num\_cells < 3*order\_accuracy - 1) \{}
+00152 \textcolor{comment}{//       mexErrMsgIdAndTxt("MyToolbox:arrayProduct:nrhs", "Number of cells too small for required order.");}
+00153 \textcolor{comment}{//     \}}
+00154 \textcolor{comment}{//}
+00155 \textcolor{comment}{//     if (order\_accuracy >= 8) \{}
+00156 \textcolor{comment}{//       std::cout << "Order of accuracy too high. Mimetic threshold will be applied." << std::endl;}
+00157 \textcolor{comment}{//     \}}
+00158 \textcolor{comment}{//}
+00159 \textcolor{comment}{//     if (nrhs == 5 && order\_accuracy >= 8) \{}
+00160 \textcolor{comment}{//       tau = mxGetScalar(prhs[4]);}
+00161 \textcolor{comment}{//     \}}
+00162 \textcolor{comment}{//}
+00163 \textcolor{comment}{//     if(nrhs == 5 && order\_accuracy <8 ) \{}
+00164 \textcolor{comment}{//       std::cout << "Order of accuracy does not need mimetic threshold. If provided it will be
+       ignored."<<std::endl;}
+00165 \textcolor{comment}{//       tau = mxGetScalar(prhs[4]);}
+00166 \textcolor{comment}{//     \}}
+00167 \textcolor{comment}{//}
+00168 \textcolor{comment}{//     if(nrhs == 4 && order\_accuracy >= 8) \{}
+00169 \textcolor{comment}{//       //Default threshold, used only if order >=8}
+00170 \textcolor{comment}{//       std::cout << "Default mimetic threshold set as 1e-6."<<std::endl;}
+00171 \textcolor{comment}{//       tau = 1.0e-6;}
+00172 \textcolor{comment}{//     \}}
+00173 \textcolor{comment}{//}
+00174 \textcolor{comment}{//     plhs[0] = mxCreateDoubleMatrix((mwSize) (num\_cells + 2),}
+00175 \textcolor{comment}{//                                    (mwSize) (num\_cells + 1),}
+00176 \textcolor{comment}{//                                    mxREAL);}
+00177 \textcolor{comment}{//}
+00178 \textcolor{comment}{//     outMatrix =  mxGetPr(plhs[0]);}
+00179 \textcolor{comment}{//}
+00180 \textcolor{comment}{//     MTKDiv1DReturnAsDenseMatrix(order\_accuracy, west\_bndy\_x, east\_bndy\_x, num\_cells, tau, outMatrix);}
+00181 \textcolor{comment}{//   \}}
+00182 \}
+00183 
+00184 \textcolor{keyword}{static} \textcolor{keywordtype}{int} MTKDiv1D(\textcolor{keywordtype}{int} order\_accuracy,
+00185                     mtk::Real tau,
+00186                     mtk::Real *outS,
+00187                     mtk::Real *outM,
+00188                     mtk::Real *outQ) \{
+00189 
+00190 \textcolor{comment}{//   mtk::MTK\_1DDiv *div = new  mtk::MTK\_1DDiv(order\_accuracy,tau);}
+00191 \textcolor{comment}{//}
+00192 \textcolor{comment}{//   int Number\_of\_Extra\_Rows=order\_accuracy/2-1;}
+00193 \textcolor{comment}{//}
+00194 \textcolor{comment}{//   div = div->Construct1DDiv();}
+00195 \textcolor{comment}{//}
+00196 \textcolor{comment}{//   if (div == nullptr) \{}
+00197 \textcolor{comment}{//     return EXIT\_FAILURE;}
+00198 \textcolor{comment}{//   \}}
+00199 \textcolor{comment}{//}
+00200 \textcolor{comment}{//   mtk::Real *ww;}
+00201 \textcolor{comment}{//   mtk::Real *ss;}
+00202 \textcolor{comment}{//   mtk::MTK\_DenseMatrix *ee;}
+00203 \textcolor{comment}{//   mtk::MTK\_DenseMatrix *eeT;}
+00204 \textcolor{comment}{//}
+00205 \textcolor{comment}{//   ss = div->ReturnStencil();}
+00206 \textcolor{comment}{//}
+00207 \textcolor{comment}{//   ww = div->ReturnWeights();}
+00208 \textcolor{comment}{//}
+00209 \textcolor{comment}{//   for(auto ii = 0; ii < order\_accuracy; ii++) \{}
+00210 \textcolor{comment}{//     outQ[ii]= ww[ii];}
+00211 \textcolor{comment}{//     outS[ii]= ss[ii];}
+00212 \textcolor{comment}{//   \}}
+00213 \textcolor{comment}{//}
+00214 \textcolor{comment}{//   ee = div->ReturnMimeticCoefficients();}
+00215 \textcolor{comment}{//   eeT= new mtk::MTK\_DenseMatrix(3*order\_accuracy/2,Number\_of\_Extra\_Rows);}
+00216 \textcolor{comment}{//   eeT->Transpose(*ee,*eeT);}
+00217 \textcolor{comment}{//}
+00218 \textcolor{comment}{//   for(auto ii=0;ii<3*order\_accuracy/2*Number\_of\_Extra\_Rows;ii++) \{}
+00219 \textcolor{comment}{//   out M[ii]=eeT->DenseMatrix\_To\_Real(*eeT)[ii];}
+00220 \textcolor{comment}{//   \}}
+00221 \textcolor{comment}{//}
+00222 \textcolor{comment}{//   delete [] ww;}
+00223 \textcolor{comment}{//   delete [] ss;}
+00224 \textcolor{comment}{//   delete [] ee;}
+00225 \}
+00226 
+00227 \textcolor{keyword}{static} \textcolor{keywordtype}{int} MTKDiv1DReturnAsDenseMatrix(\textcolor{keywordtype}{int} order\_accuracy,
+00228                                        mtk::Real west\_bndy\_x,
+00229                                        mtk::Real east\_bndy\_x,
+00230                                        \textcolor{keywordtype}{int} num\_cells,
+00231                                        mtk::Real tau,
+00232                                        mtk::Real *outMatrix) \{
+00233 
+00234 \textcolor{comment}{//   int nn = num\_cells + 2;}
+00235 \textcolor{comment}{//   int mm = num\_cells + 1;}
+00236 \textcolor{comment}{//}
+00237 \textcolor{comment}{//   mtk::MTK\_DenseMatrix *dd;}
+00238 \textcolor{comment}{//   mtk::MTK\_DenseMatrix *ddT;}
+00239 \textcolor{comment}{//}
+00240 \textcolor{comment}{//   mtk::MTK\_1DDiv *div = new  mtk::MTK\_1DDiv(order\_accuracy,tau);}
+00241 \textcolor{comment}{//}
+00242 \textcolor{comment}{//   div = div->Construct1DDiv();}
+00243 \textcolor{comment}{//}
+00244 \textcolor{comment}{//   ddT = new mtk::MTK\_DenseMatrix(mm,nn);}
+00245 \textcolor{comment}{//}
+00246 \textcolor{comment}{//   if (div == nullptr) \{}
+00247 \textcolor{comment}{//     std::cout << "Problem constructing the matrix... " << std::endl;}
+00248 \textcolor{comment}{//     return EXIT\_FAILURE;}
+00249 \textcolor{comment}{//   \}}
+00250 \textcolor{comment}{//}
+00251 \textcolor{comment}{//   dd = div->ReturnAsMatrix(num\_cells, west\_bndy\_x, east\_bndy\_x);}
+00252 \textcolor{comment}{//}
+00253 \textcolor{comment}{//   dd->Transpose(*dd,*ddT);}
+00254 \textcolor{comment}{//}
+00255 \textcolor{comment}{//   for(auto ii = 0; ii < mm*nn; ii++) \{}
+00256 \textcolor{comment}{//     outMatrix[ii]=ddT->DenseMatrix\_To\_Real(*ddT)[ii];}
+00257 \textcolor{comment}{//   \}}
+00258 \textcolor{comment}{//}
+00259 \textcolor{comment}{//   delete [] ddT;}
+00260 \}
+00261 
+00262 \textcolor{preprocessor}{#endif}
+\end{DoxyCode}
