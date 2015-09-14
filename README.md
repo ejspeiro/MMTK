@@ -42,6 +42,7 @@ Therefore, the following dependencies tree arises:
 
 1. MTK - Available from: http://csrc.sdsu.edu/mtk/
 
+Plus all of the dependencies the MTK entails.
     __________________________________________________________________
 
 ## 3. Installation
@@ -174,6 +175,8 @@ If successful you'll read:
 ```
 ----- Library created! Check in /home/ejspeiro/Dropbox/MTK/lib
 ```
+
+And that is it!
     __________________________________________________________________
 
 ## 4. Frequently Asked Questions
