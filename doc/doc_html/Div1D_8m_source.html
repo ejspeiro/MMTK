@@ -124,24 +124,46 @@ $(document).ready(function(){initNavTree('Div1D_8m_source.html','');});
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;</div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;addpath(&#39;../mexsrc&#39;);</div>
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;</div>
-<div class="line"><a name="l00021"></a><span class="lineno"><a class="line" href="Div1D_8m.html#a5deb88318d4038c04133785a4f718d42">   21</a></span>&#160;format <a class="code" href="Div1D_8m.html#a5deb88318d4038c04133785a4f718d42">shortG</a>;</div>
-<div class="line"><a name="l00022"></a><span class="lineno"><a class="line" href="Div1D_8m.html#a4603254d9990f7140c024d51302d1a8f">   22</a></span>&#160;close <a class="code" href="Div1D_8m.html#a4603254d9990f7140c024d51302d1a8f">all</a>;</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;clear <a class="code" href="Div1D_8m.html#a4603254d9990f7140c024d51302d1a8f">all</a>;</div>
-<div class="line"><a name="l00024"></a><span class="lineno"><a class="line" href="Div1D_8m.html#a3f3d3b13a15c726d6aa03db3dd0d6377">   24</a></span>&#160;<a class="code" href="Div1D_8m.html#a3f3d3b13a15c726d6aa03db3dd0d6377">clc</a>;</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;MMTKDiv1D(2)</div>
+<div class="line"><a name="l00021"></a><span class="lineno"><a class="line" href="Div1D_8m.html#a4603254d9990f7140c024d51302d1a8f">   21</a></span>&#160;close <a class="code" href="Div1D_8m.html#a4603254d9990f7140c024d51302d1a8f">all</a>;</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;clear <a class="code" href="Div1D_8m.html#a4603254d9990f7140c024d51302d1a8f">all</a>;</div>
+<div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="Div1D_8m.html#a3f3d3b13a15c726d6aa03db3dd0d6377">   23</a></span>&#160;<a class="code" href="Div1D_8m.html#a3f3d3b13a15c726d6aa03db3dd0d6377">clc</a>;</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;</div>
+<div class="line"><a name="l00025"></a><span class="lineno"><a class="line" href="Div1D_8m.html#a42e8babba1fa05d3e41d900b79d27f09">   25</a></span>&#160;<a class="code" href="Div1D_8m.html#a42e8babba1fa05d3e41d900b79d27f09">west</a> = 0.0;</div>
+<div class="line"><a name="l00026"></a><span class="lineno"><a class="line" href="Div1D_8m.html#af3acd4f73a281b721e37442019d9f7b4">   26</a></span>&#160;<a class="code" href="Div1D_8m.html#af3acd4f73a281b721e37442019d9f7b4">east</a> = 1.0;</div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;%------------- END OF CODE --------------</div>
-<div class="ttc" id="Div1D_8m_html_a5deb88318d4038c04133785a4f718d42"><div class="ttname"><a href="Div1D_8m.html#a5deb88318d4038c04133785a4f718d42">shortG</a></div><div class="ttdeci">format shortG</div><div class="ttdef"><b>Definition:</b> <a href="Div1D_8m_source.html#l00021">Div1D.m:21</a></div></div>
-<div class="ttc" id="Div1D_8m_html_a3f3d3b13a15c726d6aa03db3dd0d6377"><div class="ttname"><a href="Div1D_8m.html#a3f3d3b13a15c726d6aa03db3dd0d6377">clc</a></div><div class="ttdeci">clc</div><div class="ttdef"><b>Definition:</b> <a href="Div1D_8m_source.html#l00024">Div1D.m:24</a></div></div>
-<div class="ttc" id="Div1D_8m_html_a4603254d9990f7140c024d51302d1a8f"><div class="ttname"><a href="Div1D_8m.html#a4603254d9990f7140c024d51302d1a8f">all</a></div><div class="ttdeci">close all</div><div class="ttdef"><b>Definition:</b> <a href="Div1D_8m_source.html#l00022">Div1D.m:22</a></div></div>
+<div class="line"><a name="l00028"></a><span class="lineno"><a class="line" href="Div1D_8m.html#afd8da04287d364291ca7676dada86e49">   28</a></span>&#160;<a class="code" href="Div1D_8m.html#afd8da04287d364291ca7676dada86e49">kk</a> = 2</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;[ss, mb, qq] = MMTKDiv1D(<a class="code" href="Div1D_8m.html#afd8da04287d364291ca7676dada86e49">kk</a>);</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;ss</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;</div>
+<div class="line"><a name="l00032"></a><span class="lineno"><a class="line" href="Div1D_8m.html#afa2de00f6b2bd4ed2aa68cd995a5bb17">   32</a></span>&#160;<a class="code" href="Div1D_8m.html#afa2de00f6b2bd4ed2aa68cd995a5bb17">num_cells</a> = 3*<a class="code" href="Div1D_8m.html#afd8da04287d364291ca7676dada86e49">kk</a> - 1;</div>
+<div class="line"><a name="l00033"></a><span class="lineno"><a class="line" href="Div1D_8m.html#a00b49825eb9b4ffce1a4877d83ce126c">   33</a></span>&#160;<a class="code" href="Div1D_8m.html#a00b49825eb9b4ffce1a4877d83ce126c">div</a> = MMTKDiv1D(<a class="code" href="Div1D_8m.html#afd8da04287d364291ca7676dada86e49">kk</a>, <a class="code" href="Div1D_8m.html#a42e8babba1fa05d3e41d900b79d27f09">west</a>, <a class="code" href="Div1D_8m.html#af3acd4f73a281b721e37442019d9f7b4">east</a>, <a class="code" href="Div1D_8m.html#afa2de00f6b2bd4ed2aa68cd995a5bb17">num_cells</a>);</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<a class="code" href="Div1D_8m.html#a00b49825eb9b4ffce1a4877d83ce126c">div</a></div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<a class="code" href="Div1D_8m.html#afd8da04287d364291ca7676dada86e49">kk</a> = 4</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;[ss, mb, qq] = MMTKDiv1D(<a class="code" href="Div1D_8m.html#afd8da04287d364291ca7676dada86e49">kk</a>);</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;ss</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;mb</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;qq</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<a class="code" href="Div1D_8m.html#afa2de00f6b2bd4ed2aa68cd995a5bb17">num_cells</a> = 3*<a class="code" href="Div1D_8m.html#afd8da04287d364291ca7676dada86e49">kk</a> - 1;</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<a class="code" href="Div1D_8m.html#a00b49825eb9b4ffce1a4877d83ce126c">div</a> = MMTKDiv1D(<a class="code" href="Div1D_8m.html#afd8da04287d364291ca7676dada86e49">kk</a>, <a class="code" href="Div1D_8m.html#a42e8babba1fa05d3e41d900b79d27f09">west</a>, <a class="code" href="Div1D_8m.html#af3acd4f73a281b721e37442019d9f7b4">east</a>, <a class="code" href="Div1D_8m.html#afa2de00f6b2bd4ed2aa68cd995a5bb17">num_cells</a>);</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<a class="code" href="Div1D_8m.html#a00b49825eb9b4ffce1a4877d83ce126c">div</a></div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;%------------- END OF CODE --------------</div>
+<div class="ttc" id="Div1D_8m_html_afa2de00f6b2bd4ed2aa68cd995a5bb17"><div class="ttname"><a href="Div1D_8m.html#afa2de00f6b2bd4ed2aa68cd995a5bb17">num_cells</a></div><div class="ttdeci">ss num_cells</div><div class="ttdef"><b>Definition:</b> <a href="Div1D_8m_source.html#l00032">Div1D.m:32</a></div></div>
+<div class="ttc" id="Div1D_8m_html_af3acd4f73a281b721e37442019d9f7b4"><div class="ttname"><a href="Div1D_8m.html#af3acd4f73a281b721e37442019d9f7b4">east</a></div><div class="ttdeci">east</div><div class="ttdef"><b>Definition:</b> <a href="Div1D_8m_source.html#l00026">Div1D.m:26</a></div></div>
+<div class="ttc" id="Div1D_8m_html_a3f3d3b13a15c726d6aa03db3dd0d6377"><div class="ttname"><a href="Div1D_8m.html#a3f3d3b13a15c726d6aa03db3dd0d6377">clc</a></div><div class="ttdeci">clc</div><div class="ttdef"><b>Definition:</b> <a href="Div1D_8m_source.html#l00023">Div1D.m:23</a></div></div>
+<div class="ttc" id="Div1D_8m_html_a4603254d9990f7140c024d51302d1a8f"><div class="ttname"><a href="Div1D_8m.html#a4603254d9990f7140c024d51302d1a8f">all</a></div><div class="ttdeci">close all</div><div class="ttdef"><b>Definition:</b> <a href="Div1D_8m_source.html#l00021">Div1D.m:21</a></div></div>
+<div class="ttc" id="Div1D_8m_html_a00b49825eb9b4ffce1a4877d83ce126c"><div class="ttname"><a href="Div1D_8m.html#a00b49825eb9b4ffce1a4877d83ce126c">div</a></div><div class="ttdeci">div</div><div class="ttdef"><b>Definition:</b> <a href="Div1D_8m_source.html#l00033">Div1D.m:33</a></div></div>
+<div class="ttc" id="Div1D_8m_html_afd8da04287d364291ca7676dada86e49"><div class="ttname"><a href="Div1D_8m.html#afd8da04287d364291ca7676dada86e49">kk</a></div><div class="ttdeci">kk</div><div class="ttdef"><b>Definition:</b> <a href="Div1D_8m_source.html#l00028">Div1D.m:28</a></div></div>
+<div class="ttc" id="Div1D_8m_html_a42e8babba1fa05d3e41d900b79d27f09"><div class="ttname"><a href="Div1D_8m.html#a42e8babba1fa05d3e41d900b79d27f09">west</a></div><div class="ttdeci">west</div><div class="ttdef"><b>Definition:</b> <a href="Div1D_8m_source.html#l00025">Div1D.m:25</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d28a4824dc47e487b107a5db32ef43c4.html">examples</a></li><li class="navelem"><a class="el" href="Div1D_8m.html">Div1D.m</a></li>
-    <li class="footer">Generated on Thu Sep 10 2015 15:44:26 for MMTK: MATLAB Wrappers for the Mimetic Methods Toolkit by
+    <li class="footer">Generated on Mon Sep 14 2015 16:52:43 for MMTK: MATLAB Wrappers for the Mimetic Methods Toolkit by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

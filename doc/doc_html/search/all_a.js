@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['tests_20and_20test_20architectures',['Tests and Test Architectures',['../page_architectures.html',1,'']]]
+  ['read_20me_20file_20and_20installation_20instructions',['Read Me File and Installation Instructions',['../page_readme.html',1,'']]],
+  ['readme_2emd',['README.md',['../README_8md.html',1,'']]]
 ];

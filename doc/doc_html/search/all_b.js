@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['user_20manual_2c_20references_20and_20theory',['User Manual, References and Theory',['../page_ref_the.html',1,'']]]
+  ['tests_20and_20test_20architectures',['Tests and Test Architectures',['../page_architectures.html',1,'']]]
 ];

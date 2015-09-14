@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2014.4.30)  10 SEP 2015 15:44
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2014.4.30)  14 SEP 2015 16:52
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1108,18 +1108,18 @@ LaTeX Font Info:    Font shape `T1/phv/b/n' will be
 LaTeX Font Info:    Font shape `T1/phv/bc/n' will be
 (Font)              scaled to size 10.79993pt on input line 18.
 LaTeX Font Info:    Font shape `T1/phv/m/n' will be
-(Font)              scaled to size 7.19995pt on input line 40.
+(Font)              scaled to size 7.19995pt on input line 49.
  [7]
 LaTeX Font Info:    Font shape `T1/phv/bc/n' will be
-(Font)              scaled to size 8.99994pt on input line 72.
+(Font)              scaled to size 8.99994pt on input line 81.
  [8]
-Overfull \hbox (67.96815pt too wide) in paragraph at lines 185--185
+Overfull \hbox (67.96815pt too wide) in paragraph at lines 194--194
 []\T1/pcr/m/n/9 CMDLINE2="$LDXX -std=c++11 $LDFLAGS $LDTYPE $LINKOPTIM $LINKEXP
 ORT $OBJS $CXXLIBS $LINKLIBS -o $EXE"[] 
  []
 
 [9] [10]
-LaTeX Font Info:    Try loading font information for TS1+pcr on input line 319.
+LaTeX Font Info:    Try loading font information for TS1+pcr on input line 328.
 
  (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ts1pcr.fd
 File: ts1pcr.fd 2001/06/04 font definitions for TS1/pcr.
@@ -1151,17 +1151,15 @@ File: ts1phv.fd 2001/06/04 scalable font definitions for TS1/phv.
 )
 LaTeX Font Info:    Font shape `TS1/phv/m/n' will be
 (Font)              scaled to size 8.99994pt on input line 7.
-)
-(./Div1D_8m_source.tex
 LaTeX Font Info:    Font shape `T1/phv/m/n' will be
-(Font)              scaled to size 6.29996pt on input line 5.
- [23pdfTeX warning (ext4): destination with the same identifier (name{Div1D_8m}
-) has been already used, duplicate ignored
+(Font)              scaled to size 6.29996pt on input line 56.
 
-\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
-                                                  \fi \fi 
-l.20 00015 % 2015-09-10 14:18:35
-                                ]) (./mmtk_8h.tex
+[23]) (./Div1D_8m_source.texpdfTeX warning (ext4): destination with the same id
+entifier (name{Div1D_8m}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.3 }
+     ) (./mmtk_8h.tex [24]
 Underfull \hbox (badness 10000) detected at line 14
 [][][]
  []
@@ -1171,14 +1169,15 @@ Underfull \hbox (badness 10000) detected at line 17
 [][][]
  []
 
-) (./mmtk_8h_source.tex [24pdfTeX warning (ext4): destination with the same ide
-ntifier (name{mmtk_8h}) has been already used, duplicate ignored
+) (./mmtk_8h_source.texpdfTeX warning (ext4): destination with the same identif
+ier (name{mmtk_8h}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.3 }
+     ) (./Makefile_8inc.tex) (./Makefile_8inc_source.tex [25]
+Underfull \vbox (badness 6758) has occurred while \output is active []
 
-\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
-                                                  \fi \fi 
-l.36 ...any other intellectual property rights of}
-                                                  ]) (./Makefile_8inc.tex)
-(./Makefile_8inc_source.tex [25]
+ [26]
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <7> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 108.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <5> not available
@@ -1186,22 +1185,19 @@ LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <5> not available
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [26])
+ [27])
 (./MMTKDiv1D_8cc.tex
 Underfull \hbox (badness 10000) detected at line 12
 [][][]
  []
 
-) (./MMTKDiv1D_8cc_source.tex [27pdfTeX warning (ext4): destination with the sa
+) (./MMTKDiv1D_8cc_source.tex [28pdfTeX warning (ext4): destination with the sa
 me identifier (name{MMTKDiv1D_8cc}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.20 00021 \textcolor{comment}{}
-                                ]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [28]
+l.41 ...IGHT HOLDERS AND CONTRIBUTORS "AS IS" AND}
+                                                  ]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [29]
@@ -1214,9 +1210,9 @@ entifier (name{MMTKDiv1D_8m}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.43 ...:\textcolor{comment}{//csrc.sdsu.edu/mtk/}
-                                                  ]
-Underfull \vbox (badness 10000) has occurred while \output is active []
+l.2 }
+     ]
+Underfull \vbox (badness 6758) has occurred while \output is active []
 
  [32]
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -1232,7 +1228,7 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 182.
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 182.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 182.
 Package rerunfilecheck Info: File `refman.out' has not changed.
-(rerunfilecheck)             Checksum: 32F9DA5C73A4AD2B6C2370735099C668;4913.
+(rerunfilecheck)             Checksum: F02A92C314D17C293BFE28A24CF7E53E;5284.
 
 
 LaTeX Warning: There were multiply-defined labels.
@@ -1240,13 +1236,13 @@ LaTeX Warning: There were multiply-defined labels.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 182.
  ) 
 Here is how much of TeX's memory you used:
- 12390 strings out of 495028
- 170607 string characters out of 6181497
- 254896 words of memory out of 5000000
- 15202 multiletter control sequences out of 15000+600000
+ 12409 strings out of 495028
+ 171200 string characters out of 6181497
+ 256081 words of memory out of 5000000
+ 15210 multiletter control sequences out of 15000+600000
  71258 words of font info for 104 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 48i,12n,43p,1809b,623s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 48i,13n,43p,1809b,505s stack positions out of 5000i,500n,10000p,200000b,80000s
 pdfTeX warning (dest): name{MMTKDiv1D_8cc_source} has been referenced but doe
 s not exist, replaced by a fixed one
 
@@ -1262,10 +1258,10 @@ dist/fonts/type1/urw/courier/ucrb8a.pfb></usr/share/texlive/texmf-dist/fonts/ty
 pe1/urw/courier/ucrr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helve
 tic/uhvb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvb8ac.
 pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb>
-Output written on refman.pdf (39 pages, 131972 bytes).
+Output written on refman.pdf (39 pages, 136152 bytes).
 PDF statistics:
- 529 PDF objects out of 1000 (max. 8388607)
- 477 compressed objects within 5 object streams
- 144 named destinations out of 1000 (max. 500000)
- 265 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 619 PDF objects out of 1000 (max. 8388607)
+ 566 compressed objects within 6 object streams
+ 156 named destinations out of 1000 (max. 500000)
+ 297 words of extra memory for PDF output out of 10000 (max. 10000000)
 

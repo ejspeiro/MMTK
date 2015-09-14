@@ -9,7 +9,7 @@
     <programlisting>
 <codeline lineno="1"><highlight class="normal">%<sp/>MMTKDiv1D<sp/>Create<sp/>a<sp/>mimetic<sp/>one-dimensional<sp/>divergence<sp/>operator.</highlight></codeline>
 <codeline lineno="2"><highlight class="normal">%</highlight></codeline>
-<codeline lineno="3"><highlight class="normal">%<sp/><sp/><sp/>div<sp/>=<sp/>MMTKDiv1D(k,<sp/>w,<sp/>e,<sp/>n,<sp/>tau)<sp/>Returns<sp/>the<sp/>divergence<sp/>order<sp/>k<sp/>as<sp/>a<sp/>n<sp/>+<sp/>2</highlight></codeline>
+<codeline lineno="3"><highlight class="normal">%<sp/><sp/><sp/><ref refid="Div1D_8m_1a00b49825eb9b4ffce1a4877d83ce126c" kindref="member">div</ref><sp/>=<sp/>MMTKDiv1D(k,<sp/>w,<sp/>e,<sp/>n,<sp/>tau)<sp/>Returns<sp/>the<sp/>divergence<sp/>order<sp/>k<sp/>as<sp/>a<sp/>n<sp/>+<sp/>2</highlight></codeline>
 <codeline lineno="4"><highlight class="normal">%<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>by<sp/>n<sp/>+<sp/>1<sp/>matrix,<sp/>in<sp/>the<sp/>interval<sp/>(w,e)<sp/>with</highlight></codeline>
 <codeline lineno="5"><highlight class="normal">%<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>discretized<sp/>using<sp/>n<sp/>cells<sp/>with<sp/>the<sp/>given</highlight></codeline>
 <codeline lineno="6"><highlight class="normal">%<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>mimetic<sp/>threshold<sp/>tau<sp/>(optional).</highlight></codeline>

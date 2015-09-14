@@ -1,4 +1,4 @@
-.TH "examples/Div1D.m" 3 "Thu Sep 10 2015" "MMTK: MATLAB Wrappers for the Mimetic Methods Toolkit" \" -*- nroff -*-
+.TH "examples/Div1D.m" 3 "Mon Sep 14 2015" "MMTK: MATLAB Wrappers for the Mimetic Methods Toolkit" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -10,13 +10,25 @@ examples/Div1D.m \-
 
 .in +1c
 .ti -1c
-.RI "format \fBshortG\fP"
-.br
-.ti -1c
 .RI "close \fBall\fP"
 .br
 .ti -1c
 .RI "\fBclc\fP"
+.br
+.ti -1c
+.RI "\fBwest\fP = 0\&.0"
+.br
+.ti -1c
+.RI "\fBeast\fP = 1\&.0"
+.br
+.ti -1c
+.RI "\fBkk\fP"
+.br
+.ti -1c
+.RI "ss \fBnum_cells\fP = 3*\fBkk\fP - 1"
+.br
+.ti -1c
+.RI "\fBdiv\fP = MMTKDiv1D(\fBkk\fP, \fBwest\fP, \fBeast\fP, \fBnum_cells\fP)"
 .br
 .in -1c
 .SH "Variable Documentation"
@@ -24,15 +36,36 @@ examples/Div1D.m \-
 .SS "clear all"
 
 .PP
-Definition at line 22 of file Div1D\&.m\&.
+Definition at line 21 of file Div1D\&.m\&.
 .SS "clc"
 
 .PP
-Definition at line 24 of file Div1D\&.m\&.
-.SS "format shortG"
+Definition at line 23 of file Div1D\&.m\&.
+.SS "div = MMTKDiv1D(\fBkk\fP, \fBwest\fP, \fBeast\fP, \fBnum_cells\fP)"
 
 .PP
-Definition at line 21 of file Div1D\&.m\&.
+Definition at line 33 of file Div1D\&.m\&.
+.SS "east = 1\&.0"
+
+.PP
+Definition at line 26 of file Div1D\&.m\&.
+.SS "\fBdiv\fP kk"
+\fBInitial value:\fP
+.PP
+.nf
+= 2
+[ss, mb, qq] = MMTKDiv1D(kk)
+.fi
+.PP
+Definition at line 28 of file Div1D\&.m\&.
+.SS "ss mb qq num_cells = 3*\fBkk\fP - 1"
+
+.PP
+Definition at line 32 of file Div1D\&.m\&.
+.SS "west = 0\&.0"
+
+.PP
+Definition at line 25 of file Div1D\&.m\&.
 .SH "Author"
 .PP 
 Generated automatically by Doxygen for MMTK: MATLAB Wrappers for the Mimetic Methods Toolkit from the source code\&.

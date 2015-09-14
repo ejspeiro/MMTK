@@ -23,12 +23,30 @@
 00018 
 00019 addpath('../mexsrc');
 00020 
-\hypertarget{Div1D_8m_source_l00021}{}\hyperlink{Div1D_8m_a5deb88318d4038c04133785a4f718d42}{00021} format \hyperlink{Div1D_8m_a5deb88318d4038c04133785a4f718d42}{shortG};
-\hypertarget{Div1D_8m_source_l00022}{}\hyperlink{Div1D_8m_a4603254d9990f7140c024d51302d1a8f}{00022} close \hyperlink{Div1D_8m_a4603254d9990f7140c024d51302d1a8f}{all};
-00023 clear \hyperlink{Div1D_8m_a4603254d9990f7140c024d51302d1a8f}{all};
-\hypertarget{Div1D_8m_source_l00024}{}\hyperlink{Div1D_8m_a3f3d3b13a15c726d6aa03db3dd0d6377}{00024} \hyperlink{Div1D_8m_a3f3d3b13a15c726d6aa03db3dd0d6377}{clc};
-00025 
-00026 MMTKDiv1D(2)
+\hypertarget{Div1D_8m_source_l00021}{}\hyperlink{Div1D_8m_a4603254d9990f7140c024d51302d1a8f}{00021} close \hyperlink{Div1D_8m_a4603254d9990f7140c024d51302d1a8f}{all};
+00022 clear \hyperlink{Div1D_8m_a4603254d9990f7140c024d51302d1a8f}{all};
+\hypertarget{Div1D_8m_source_l00023}{}\hyperlink{Div1D_8m_a3f3d3b13a15c726d6aa03db3dd0d6377}{00023} \hyperlink{Div1D_8m_a3f3d3b13a15c726d6aa03db3dd0d6377}{clc};
+00024 
+\hypertarget{Div1D_8m_source_l00025}{}\hyperlink{Div1D_8m_a42e8babba1fa05d3e41d900b79d27f09}{00025} \hyperlink{Div1D_8m_a42e8babba1fa05d3e41d900b79d27f09}{west} = 0.0;
+\hypertarget{Div1D_8m_source_l00026}{}\hyperlink{Div1D_8m_af3acd4f73a281b721e37442019d9f7b4}{00026} \hyperlink{Div1D_8m_af3acd4f73a281b721e37442019d9f7b4}{east} = 1.0;
 00027 
-00028 %------------- END OF CODE --------------
+\hypertarget{Div1D_8m_source_l00028}{}\hyperlink{Div1D_8m_afd8da04287d364291ca7676dada86e49}{00028} \hyperlink{Div1D_8m_afd8da04287d364291ca7676dada86e49}{kk} = 2
+00029 [ss, mb, qq] = MMTKDiv1D(\hyperlink{Div1D_8m_afd8da04287d364291ca7676dada86e49}{kk});
+00030 ss
+00031 
+\hypertarget{Div1D_8m_source_l00032}{}\hyperlink{Div1D_8m_afa2de00f6b2bd4ed2aa68cd995a5bb17}{00032} \hyperlink{Div1D_8m_afa2de00f6b2bd4ed2aa68cd995a5bb17}{num\_cells} = 3*\hyperlink{Div1D_8m_afd8da04287d364291ca7676dada86e49}{kk} - 1;
+\hypertarget{Div1D_8m_source_l00033}{}\hyperlink{Div1D_8m_a00b49825eb9b4ffce1a4877d83ce126c}{00033} \hyperlink{Div1D_8m_a00b49825eb9b4ffce1a4877d83ce126c}{div} = MMTKDiv1D(\hyperlink{Div1D_8m_afd8da04287d364291ca7676dada86e49}{kk}, \hyperlink{Div1D_8m_a42e8babba1fa05d3e41d900b79d27f09}{west}, \hyperlink{Div1D_8m_af3acd4f73a281b721e37442019d9f7b4}{east}, \hyperlink{Div1D_8m_afa2de00f6b2bd4ed2aa68cd995a5bb17}{num\_cells});
+00034 \hyperlink{Div1D_8m_a00b49825eb9b4ffce1a4877d83ce126c}{div}
+00035 
+00036 \hyperlink{Div1D_8m_afd8da04287d364291ca7676dada86e49}{kk} = 4
+00037 [ss, mb, qq] = MMTKDiv1D(\hyperlink{Div1D_8m_afd8da04287d364291ca7676dada86e49}{kk});
+00038 ss
+00039 mb
+00040 qq
+00041 
+00042 \hyperlink{Div1D_8m_afa2de00f6b2bd4ed2aa68cd995a5bb17}{num\_cells} = 3*\hyperlink{Div1D_8m_afd8da04287d364291ca7676dada86e49}{kk} - 1;
+00043 \hyperlink{Div1D_8m_a00b49825eb9b4ffce1a4877d83ce126c}{div} = MMTKDiv1D(\hyperlink{Div1D_8m_afd8da04287d364291ca7676dada86e49}{kk}, \hyperlink{Div1D_8m_a42e8babba1fa05d3e41d900b79d27f09}{west}, \hyperlink{Div1D_8m_af3acd4f73a281b721e37442019d9f7b4}{east}, \hyperlink{Div1D_8m_afa2de00f6b2bd4ed2aa68cd995a5bb17}{num\_cells});
+00044 \hyperlink{Div1D_8m_a00b49825eb9b4ffce1a4877d83ce126c}{div}
+00045 
+00046 %------------- END OF CODE --------------
 \end{DoxyCode}

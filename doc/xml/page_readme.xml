@@ -14,7 +14,8 @@ properties of their continuum counterparts to be <bold>mimetic</bold>.</preforma
 methods. It is arranged as a set of classes for <bold>mimetic quadratures</bold>,
 <bold>mimetic interpolation</bold>, and <bold>mimetic discretization</bold> methods for the
 numerical solution of ordinary and partial differential equations.</preformatted></para><para><preformatted>This collection of <bold>MATLAB Wrappers for the MTK (MMTK)</bold> allows developers to
-invoke the MTK from a MATLAB environment.
+invoke the MTK from a MATLAB environment.</preformatted></para><para><preformatted>Finally, a collection of grid visualization routines that is compatible with
+these wrappers can be found in:</preformatted></para><para><preformatted><ulink url="https://github.com/ejspeiro/UniStgGrid-Visualizers">MATLAB Visualizers for Uniform Staggered Grids</ulink>
 <verbatim>__________________________________________________________________
 </verbatim></preformatted></para><para><preformatted><heading level="2">2. Dependencies</heading>
 </preformatted></para><para><preformatted></preformatted></para><para><preformatted>This README assumes all of these dependencies are installed in the following

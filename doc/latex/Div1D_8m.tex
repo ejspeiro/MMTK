@@ -4,11 +4,19 @@
 \subsection*{Variables}
 \begin{DoxyCompactItemize}
 \item 
-format \hyperlink{Div1D_8m_a5deb88318d4038c04133785a4f718d42}{short\-G}
-\item 
 close \hyperlink{Div1D_8m_a4603254d9990f7140c024d51302d1a8f}{all}
 \item 
 \hyperlink{Div1D_8m_a3f3d3b13a15c726d6aa03db3dd0d6377}{clc}
+\item 
+\hyperlink{Div1D_8m_a42e8babba1fa05d3e41d900b79d27f09}{west} = 0.\-0
+\item 
+\hyperlink{Div1D_8m_af3acd4f73a281b721e37442019d9f7b4}{east} = 1.\-0
+\item 
+\hyperlink{Div1D_8m_afd8da04287d364291ca7676dada86e49}{kk}
+\item 
+ss \hyperlink{Div1D_8m_afa2de00f6b2bd4ed2aa68cd995a5bb17}{num\-\_\-cells} = 3$\ast$\hyperlink{Div1D_8m_afd8da04287d364291ca7676dada86e49}{kk} -\/ 1
+\item 
+\hyperlink{Div1D_8m_a00b49825eb9b4ffce1a4877d83ce126c}{div} = M\-M\-T\-K\-Div1\-D(\hyperlink{Div1D_8m_afd8da04287d364291ca7676dada86e49}{kk}, \hyperlink{Div1D_8m_a42e8babba1fa05d3e41d900b79d27f09}{west}, \hyperlink{Div1D_8m_af3acd4f73a281b721e37442019d9f7b4}{east}, \hyperlink{Div1D_8m_afa2de00f6b2bd4ed2aa68cd995a5bb17}{num\-\_\-cells})
 \end{DoxyCompactItemize}
 
 
@@ -18,19 +26,52 @@ close \hyperlink{Div1D_8m_a4603254d9990f7140c024d51302d1a8f}{all}
 \subsubsection[{all}]{\setlength{\rightskip}{0pt plus 5cm}clear all}}\label{Div1D_8m_a4603254d9990f7140c024d51302d1a8f}
 
 
-Definition at line \hyperlink{Div1D_8m_source_l00022}{22} of file \hyperlink{Div1D_8m_source}{Div1\-D.\-m}.
+Definition at line \hyperlink{Div1D_8m_source_l00021}{21} of file \hyperlink{Div1D_8m_source}{Div1\-D.\-m}.
 
 \hypertarget{Div1D_8m_a3f3d3b13a15c726d6aa03db3dd0d6377}{\index{Div1\-D.\-m@{Div1\-D.\-m}!clc@{clc}}
 \index{clc@{clc}!Div1D.m@{Div1\-D.\-m}}
 \subsubsection[{clc}]{\setlength{\rightskip}{0pt plus 5cm}clc}}\label{Div1D_8m_a3f3d3b13a15c726d6aa03db3dd0d6377}
 
 
-Definition at line \hyperlink{Div1D_8m_source_l00024}{24} of file \hyperlink{Div1D_8m_source}{Div1\-D.\-m}.
+Definition at line \hyperlink{Div1D_8m_source_l00023}{23} of file \hyperlink{Div1D_8m_source}{Div1\-D.\-m}.
 
-\hypertarget{Div1D_8m_a5deb88318d4038c04133785a4f718d42}{\index{Div1\-D.\-m@{Div1\-D.\-m}!short\-G@{short\-G}}
-\index{short\-G@{short\-G}!Div1D.m@{Div1\-D.\-m}}
-\subsubsection[{short\-G}]{\setlength{\rightskip}{0pt plus 5cm}format short\-G}}\label{Div1D_8m_a5deb88318d4038c04133785a4f718d42}
+\hypertarget{Div1D_8m_a00b49825eb9b4ffce1a4877d83ce126c}{\index{Div1\-D.\-m@{Div1\-D.\-m}!div@{div}}
+\index{div@{div}!Div1D.m@{Div1\-D.\-m}}
+\subsubsection[{div}]{\setlength{\rightskip}{0pt plus 5cm}div = M\-M\-T\-K\-Div1\-D({\bf kk}, {\bf west}, {\bf east}, {\bf num\-\_\-cells})}}\label{Div1D_8m_a00b49825eb9b4ffce1a4877d83ce126c}
 
 
-Definition at line \hyperlink{Div1D_8m_source_l00021}{21} of file \hyperlink{Div1D_8m_source}{Div1\-D.\-m}.
+Definition at line \hyperlink{Div1D_8m_source_l00033}{33} of file \hyperlink{Div1D_8m_source}{Div1\-D.\-m}.
+
+\hypertarget{Div1D_8m_af3acd4f73a281b721e37442019d9f7b4}{\index{Div1\-D.\-m@{Div1\-D.\-m}!east@{east}}
+\index{east@{east}!Div1D.m@{Div1\-D.\-m}}
+\subsubsection[{east}]{\setlength{\rightskip}{0pt plus 5cm}east = 1.\-0}}\label{Div1D_8m_af3acd4f73a281b721e37442019d9f7b4}
+
+
+Definition at line \hyperlink{Div1D_8m_source_l00026}{26} of file \hyperlink{Div1D_8m_source}{Div1\-D.\-m}.
+
+\hypertarget{Div1D_8m_afd8da04287d364291ca7676dada86e49}{\index{Div1\-D.\-m@{Div1\-D.\-m}!kk@{kk}}
+\index{kk@{kk}!Div1D.m@{Div1\-D.\-m}}
+\subsubsection[{kk}]{\setlength{\rightskip}{0pt plus 5cm}{\bf div} kk}}\label{Div1D_8m_afd8da04287d364291ca7676dada86e49}
+{\bfseries Initial value\-:}
+\begin{DoxyCode}
+= 2
+[ss, mb, qq] = MMTKDiv1D(\hyperlink{Div1D_8m_afd8da04287d364291ca7676dada86e49}{kk})
+\end{DoxyCode}
+
+
+Definition at line \hyperlink{Div1D_8m_source_l00028}{28} of file \hyperlink{Div1D_8m_source}{Div1\-D.\-m}.
+
+\hypertarget{Div1D_8m_afa2de00f6b2bd4ed2aa68cd995a5bb17}{\index{Div1\-D.\-m@{Div1\-D.\-m}!num\-\_\-cells@{num\-\_\-cells}}
+\index{num\-\_\-cells@{num\-\_\-cells}!Div1D.m@{Div1\-D.\-m}}
+\subsubsection[{num\-\_\-cells}]{\setlength{\rightskip}{0pt plus 5cm}ss mb qq num\-\_\-cells = 3$\ast${\bf kk} -\/ 1}}\label{Div1D_8m_afa2de00f6b2bd4ed2aa68cd995a5bb17}
+
+
+Definition at line \hyperlink{Div1D_8m_source_l00032}{32} of file \hyperlink{Div1D_8m_source}{Div1\-D.\-m}.
+
+\hypertarget{Div1D_8m_a42e8babba1fa05d3e41d900b79d27f09}{\index{Div1\-D.\-m@{Div1\-D.\-m}!west@{west}}
+\index{west@{west}!Div1D.m@{Div1\-D.\-m}}
+\subsubsection[{west}]{\setlength{\rightskip}{0pt plus 5cm}west = 0.\-0}}\label{Div1D_8m_a42e8babba1fa05d3e41d900b79d27f09}
+
+
+Definition at line \hyperlink{Div1D_8m_source_l00025}{25} of file \hyperlink{Div1D_8m_source}{Div1\-D.\-m}.
 

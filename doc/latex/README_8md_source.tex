@@ -2,7 +2,7 @@
 }
 
 \begin{DoxyCode}
-00001 \textcolor{preprocessor}{# README File for the Mimetic Methods Toolkit (MTK)}
+00001 \textcolor{preprocessor}{# MATLAB wrappers for the Mimetic Methods Toolkit (MMTK)}
 00002 \textcolor{preprocessor}{}
 00003 By: **Eduardo J. Sanchez, Ph.D. - esanchez at mail dot sdsu dot edu**
 00004     \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
@@ -20,201 +20,206 @@
 00016 This collection of **MATLAB Wrappers \textcolor{keywordflow}{for} the MTK (MMTK)** allows developers to
 00017 invoke the MTK from a MATLAB environment.
 00018 
-00019     \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
-00020 
-00021 \textcolor{preprocessor}{## 2. Dependencies}
-00022 \textcolor{preprocessor}{}
-00023 This README assumes \hyperlink{Div1D_8m_a4603254d9990f7140c024d51302d1a8f}{all} of these dependencies are installed in the following
-00024 folder:
-00025 
-00026 ```
-00027 $(HOME)/Libraries/
-00028 ```
+00019 Finally, a collection of grid visualization routines that is compatible with
+00020 these wrappers can be found in:
+00021 
+00022 [MATLAB Visualizers \textcolor{keywordflow}{for} Uniform Staggered Grids](https:\textcolor{comment}{//github.com/ejspeiro/UniStgGrid-Visualizers)}
+00023     \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+00024 
+00025 \textcolor{preprocessor}{## 2. Dependencies}
+00026 \textcolor{preprocessor}{}
+00027 This README assumes \hyperlink{Div1D_8m_a4603254d9990f7140c024d51302d1a8f}{all} of these dependencies are installed in the following
+00028 folder:
 00029 
-00030 In \textcolor{keyword}{this} version, the MTK optionally uses ATLAS-optimized BLAS and LAPACK
-00031 routines \textcolor{keywordflow}{for} the \textcolor{keyword}{internal} computation on some of the layers. However, ATLAS
-00032 requires both BLAS and LAPACK in order to create their optimized distributions.
-00033 Therefore, the following dependencies tree arises:
-00034 
-00035 ### For Linux and OS X:
-00036 
-00037 1. MATLAB R2014a or greater - Available from: http:\textcolor{comment}{//www.mathworks.com/}
+00030 ```
+00031 $(HOME)/Libraries/
+00032 ```
+00033 
+00034 In \textcolor{keyword}{this} version, the MTK optionally uses ATLAS-optimized BLAS and LAPACK
+00035 routines \textcolor{keywordflow}{for} the \textcolor{keyword}{internal} computation on some of the layers. However, ATLAS
+00036 requires both BLAS and LAPACK in order to create their optimized distributions.
+00037 Therefore, the following dependencies tree arises:
 00038 
-00039 1. MTK - Available from: http:\textcolor{comment}{//csrc.sdsu.edu/mtk/}
-00040     \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
-00041 
-00042 ## 3. Installation
-00043 
-00044 The following instructions assume MATLAB R2014a or greater.
-00045 
-00046 You have two options, either follow the instructions given, **expert install**,
-00047 or use the provided **patch file**, **naive install**.
+00039 ### For Linux and OS X:
+00040 
+00041 1. MATLAB R2014a or greater - Available from: http:\textcolor{comment}{//www.mathworks.com/}
+00042 
+00043 1. MTK - Available from: http:\textcolor{comment}{//csrc.sdsu.edu/mtk/}
+00044 
+00045     \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+00046 
+00047 ## 3. Installation
 00048 
-00049 ### EXPERT PART 1. CONFIGURATION OF THE MEX COMPILER.
+00049 The following instructions assume MATLAB R2014a or greater.
 00050 
-00051 From your MATLAB prompt, type:
-00052 
-00053 ```
-00054 >> mex -setup C++
-00055 MEX configured to use \textcolor{stringliteral}{'g++'} \textcolor{keywordflow}{for} C++ language compilation.
-00056 Warning: The MATLAB C and Fortran API has changed to support MATLAB
-00057      variables with more than 2^32-1 elements. In the near future
-00058      you will be required to update your code to utilize the
-00059      \textcolor{keyword}{new} API. You can find more information about \textcolor{keyword}{this} at:
-00060 
-00061 http:\textcolor{comment}{//www.mathworks.com/help/matlab/matlab\_external/upgrading-mex-files-to-use-}
-00062 64-bit-api.html.
-00063 >>
-00064 ```
+00051 You have two options, either follow the instructions given, **expert install**,
+00052 or use the provided **patch file**, **naive install**.
+00053 
+00054 ### EXPERT PART 1. CONFIGURATION OF THE MEX COMPILER.
+00055 
+00056 From your MATLAB prompt, type:
+00057 
+00058 ```
+00059 >> mex -setup C++
+00060 MEX configured to use \textcolor{stringliteral}{'g++'} \textcolor{keywordflow}{for} C++ language compilation.
+00061 Warning: The MATLAB C and Fortran API has changed to support MATLAB
+00062      variables with more than 2^32-1 elements. In the near future
+00063      you will be required to update your code to utilize the
+00064      \textcolor{keyword}{new} API. You can find more information about \textcolor{keyword}{this} at:
 00065 
-00066 ### EXPERT PART 2. CONFIGURATION OF THE MEX COMPILER SETUP FILE.
-00067 
-00068 The previous step creates the following file:
-00069 
-00070 ```
-00071 $(HOME)/.matlab/R2014a/mex\_C++\_glnxa64.xml
-00072 ```
-00073 
-00074 The purpose of \textcolor{keyword}{this} section is to configure the MATLAB R2014a Mex compiler so
-00075 that it can work with the latest C++ standard (C++11).
-00076 
-00077 Please execute the following changes on the aforementioned file (line numbers
-00078 may differ):
-00079 
-00080 Lines 26 and 27:
+00066 http:\textcolor{comment}{//www.mathworks.com/help/matlab/matlab\_external/upgrading-mex-files-to-use-}
+00067 64-bit-api.html.
+00068 >>
+00069 ```
+00070 
+00071 ### EXPERT PART 2. CONFIGURATION OF THE MEX COMPILER SETUP FILE.
+00072 
+00073 The previous step creates the following file:
+00074 
+00075 ```
+00076 $(HOME)/.matlab/R2014a/mex\_C++\_glnxa64.xml
+00077 ```
+00078 
+00079 The purpose of \textcolor{keyword}{this} section is to configure the MATLAB R2014a Mex compiler so
+00080 that it can work with the latest C++ standard (C++11).
 00081 
-00082 ```
-00083 CMDLINE1=\textcolor{stringliteral}{"$CXX -std=c++11 -c $DEFINES $INCLUDE $CXXFLAGS $OPTIM $SRC -o $OBJ"}
-00084 CMDLINE2=\textcolor{stringliteral}{"$LDXX -std=c++11 $LDFLAGS $LDTYPE $LINKOPTIM $LINKEXPORT $OBJS $CXXLIBS $LINKLIBS -o $EXE"}
-00085 ```
+00082 Please execute the following changes on the aforementioned file (line numbers
+00083 may differ):
+00084 
+00085 Lines 26 and 27:
 00086 
-00087 Line 33:
-00088 
-00089 ```
-00090 CXXFLAGS=\textcolor{stringliteral}{"-std=c++11 -ansi -fexceptions -fPIC -fno-omit-frame-pointer -pthread"}
-00091 ```
-00092 
-00093 Line 35 and 26:
-00094 
-00095 ```
-00096 CXXOPTIMFLAGS=\textcolor{stringliteral}{"-std=c++11 -O -DNDEBUG"}
-00097 CXXDEBUGFLAGS=\textcolor{stringliteral}{"-std=c++11 -g"}
-00098 ```
+00087 ```
+00088 CMDLINE1=\textcolor{stringliteral}{"$CXX -std=c++11 -c $DEFINES $INCLUDE $CXXFLAGS $OPTIM $SRC -o $OBJ"}
+00089 CMDLINE2=\textcolor{stringliteral}{"$LDXX -std=c++11 $LDFLAGS $LDTYPE $LINKOPTIM $LINKEXPORT $OBJS $CXXLIBS $LINKLIBS -o $EXE"}
+00090 ```
+00091 
+00092 Line 33:
+00093 
+00094 ```
+00095 CXXFLAGS=\textcolor{stringliteral}{"-std=c++11 -ansi -fexceptions -fPIC -fno-omit-frame-pointer -pthread"}
+00096 ```
+00097 
+00098 Line 35 and 26:
 00099 
-00100 Line 38:
-00101 
-00102 ```
-00103 LDXX=\textcolor{stringliteral}{"gfortran"}
-00104 ```
-00105 
-00106 Line 59:
-00107 
-00108 ```
-00109 CXXFLAGS=\textcolor{stringliteral}{"-std=c++11 -ansi -pthread"}
-00110 ```
-00111 
-00112 ### NAIVE PART 1. CONFIGURATION OF THE MEX COMPILER.
-00113 
-00114 From your MATLAB prompt, type:
-00115 
-00116 ```
-00117 >> mex -setup C++
-00118 MEX configured to use \textcolor{stringliteral}{'g++'} for C++ language compilation.
-00119 Warning: The MATLAB C and Fortran API has changed to support MATLAB
-00120      variables with more than 2^32-1 elements. In the near future
-00121      you will be required to update your code to utilize the
-00122      new API. You can find more information about this at:
-00123 
-00124 http:\textcolor{comment}{//www.mathworks.com/help/matlab/matlab\_external/upgrading-mex-files-to-use-}
-00125 64-bit-api.html.
-00126 >>
-00127 ```
+00100 ```
+00101 CXXOPTIMFLAGS=\textcolor{stringliteral}{"-std=c++11 -O -DNDEBUG"}
+00102 CXXDEBUGFLAGS=\textcolor{stringliteral}{"-std=c++11 -g"}
+00103 ```
+00104 
+00105 Line 38:
+00106 
+00107 ```
+00108 LDXX=\textcolor{stringliteral}{"gfortran"}
+00109 ```
+00110 
+00111 Line 59:
+00112 
+00113 ```
+00114 CXXFLAGS=\textcolor{stringliteral}{"-std=c++11 -ansi -pthread"}
+00115 ```
+00116 
+00117 ### NAIVE PART 1. CONFIGURATION OF THE MEX COMPILER.
+00118 
+00119 From your MATLAB prompt, type:
+00120 
+00121 ```
+00122 >> mex -setup C++
+00123 MEX configured to use \textcolor{stringliteral}{'g++'} for C++ language compilation.
+00124 Warning: The MATLAB C and Fortran API has changed to support MATLAB
+00125      variables with more than 2^32-1 elements. In the near future
+00126      you will be required to update your code to utilize the
+00127      new API. You can find more information about this at:
 00128 
-00129 ### NAIVE PART 2. CONFIGURATION OF THE MEX COMPILER SETUP FILE.
-00130 
-00131 ```
-00132 cd $HOME/.matlab/R2014a
-00133 chmod +w mex\_C++\_glnxa64.xml
-00134 patch < mex\_C++\_glnxa64.patch
-00135 chmod -w mex\_C++\_glnxa64.xml
+00129 http:\textcolor{comment}{//www.mathworks.com/help/matlab/matlab\_external/upgrading-mex-files-to-use-}
+00130 64-bit-api.html.
+00131 >>
+00132 ```
+00133 
+00134 ### NAIVE PART 2. CONFIGURATION OF THE MEX COMPILER SETUP FILE.
+00135 
 00136 ```
-00137 Exit terminal, and restart MATLAB. You can use C++11 to create MEX files now!
-00138 
-00139 ### PART 3: CONFIGURATION OF THE MAKEFILE.
-00140 
-00141 The following steps are required the build and test the MTK. Please use the
-00142 accompanying `Makefile.inc` file, which should provide a solid template to
-00143 start with. The following command provides help on the options for make:
-00144 
-00145 ```
-00146 $ make help
-00147 -----
-00148 Makefile for the MMTK.
+00137 cd $HOME/.matlab/R2014a
+00138 chmod +w mex\_C++\_glnxa64.xml
+00139 patch < mex\_C++\_glnxa64.patch
+00140 chmod -w mex\_C++\_glnxa64.xml
+00141 ```
+00142 Exit terminal, and restart MATLAB. You can use C++11 to create MEX files now!
+00143 
+00144 ### PART 3: CONFIGURATION OF THE MAKEFILE.
+00145 
+00146 The following steps are required the build and test the MTK. Please use the
+00147 accompanying `Makefile.inc` file, which should provide a solid template to
+00148 start with. The following command provides help on the options for make:
 00149 
-00150 Options are:
-00151 - \hyperlink{Div1D_8m_a4603254d9990f7140c024d51302d1a8f}{all}: builds he library, the tests, and examples.
-00152 
-00153 - gendoc: generates the documentation for the library.
+00150 ```
+00151 $ make help
+00152 -----
+00153 Makefile for the MMTK.
 00154 
-00155 - clean: cleans ALL the generated files.
-00156 -----
-00157 ```
-00158 
-00159 ### PART 4. BUILD THE MMTK.
-00160 
-00161 From your shell, at the base folder of the MMTK, just type:
-00162 
-00163 ```
-00164 make
-00165 ```
-00166 
-00167 If successful you\textcolor{stringliteral}{'ll read:}
-00168 \textcolor{stringliteral}{}
-00169 \textcolor{stringliteral}{```}
-00170 \textcolor{stringliteral}{----- Library created! Check in /home/ejspeiro/Dropbox/MTK/lib}
-00171 \textcolor{stringliteral}{```}
-00172 \textcolor{stringliteral}{    \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_}
+00155 Options are:
+00156 - \hyperlink{Div1D_8m_a4603254d9990f7140c024d51302d1a8f}{all}: builds he library, the tests, and examples.
+00157 
+00158 - gendoc: generates the documentation for the library.
+00159 
+00160 - clean: cleans ALL the generated files.
+00161 -----
+00162 ```
+00163 
+00164 ### PART 4. BUILD THE MMTK.
+00165 
+00166 From your shell, at the base folder of the MMTK, just type:
+00167 
+00168 ```
+00169 make
+00170 ```
+00171 
+00172 If successful you\textcolor{stringliteral}{'ll read:}
 00173 \textcolor{stringliteral}{}
-00174 \textcolor{stringliteral}{## 4. Frequently Asked Questions}
-00175 \textcolor{stringliteral}{}
-00176 \textcolor{stringliteral}{Q: Why haven'}t you guys implemented GBS to build the library?
-00177 A: I\textcolor{stringliteral}{'m on it as we speak! ;)}
+00174 \textcolor{stringliteral}{```}
+00175 \textcolor{stringliteral}{----- Library created! Check in /home/ejspeiro/Dropbox/MTK/lib}
+00176 \textcolor{stringliteral}{```}
+00177 \textcolor{stringliteral}{    \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_}
 00178 \textcolor{stringliteral}{}
-00179 \textcolor{stringliteral}{Q: When will the other flavors be ready?}
-00180 \textcolor{stringliteral}{A: Soon! I'}m working on getting help on developing those.
-00181 
-00182 Q: Is there any main reference when it comes to the theory on Mimetic Methods?
-00183 A: Yes! Check: http:\textcolor{comment}{//www.csrc.sdsu.edu/mimetic-book}
-00184 
-00185 Q: Do I need to generate the documentation myself?
-00186 A: You can if you want to... but if you DO NOT want to, just go to our website.
-00187     \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
-00188 
-00189 ## 5. Contact, Support, and Credits
-00190 
-00191 The MTK is developed by researchers and adjuncts to the
-00192 [Computational Science Research Center (CSRC)](http:\textcolor{comment}{//www.csrc.sdsu.edu/)}
-00193 at [San Diego State University (SDSU)](http:\textcolor{comment}{//www.sdsu.edu/).}
-00194 
-00195 Developers are members of:
-00196 
-00197 1. Mimetic Numerical Methods Research and Development Group.
-00198 2. Computational Geoscience Research and Development Group.
-00199 3. Ocean Modeling Research and Development Group.
-00200 
-00201 Currently the developers are:
-00202 
-00203 - **Eduardo J. Sanchez, Ph.D. - esanchez at mail dot sdsu dot edu** - @ejspeiro
-00204 - Jose E. Castillo, Ph.D. - jcastillo at mail dot sdsu dot edu
-00205 - Guillermo F. Miranda, Ph.D. - unigrav at hotmail dot com
-00206 - Christopher P. Paolini, Ph.D. - paolini at engineering dot sdsu dot edu
-00207 - Angel Boada.
-00208 - Johnny Corbino.
-00209 - Raul Vargas-Navarro.
-00210 
-00211 Finally, please feel free to contact me with suggestions or corrections:
-00212 
-00213 **Eduardo J. Sanchez, Ph.D. - esanchez at mail dot sdsu dot edu** - @ejspeiro
-00214 
-00215 Thanks and happy coding!
+00179 \textcolor{stringliteral}{## 4. Frequently Asked Questions}
+00180 \textcolor{stringliteral}{}
+00181 \textcolor{stringliteral}{Q: Why haven'}t you guys implemented GBS to build the library?
+00182 A: I\textcolor{stringliteral}{'m on it as we speak! ;)}
+00183 \textcolor{stringliteral}{}
+00184 \textcolor{stringliteral}{Q: When will the other flavors be ready?}
+00185 \textcolor{stringliteral}{A: Soon! I'}m working on getting help on developing those.
+00186 
+00187 Q: Is there any main reference when it comes to the theory on Mimetic Methods?
+00188 A: Yes! Check: http:\textcolor{comment}{//www.csrc.sdsu.edu/mimetic-book}
+00189 
+00190 Q: Do I need to generate the documentation myself?
+00191 A: You can if you want to... but if you DO NOT want to, just go to our website.
+00192     \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+00193 
+00194 ## 5. Contact, Support, and Credits
+00195 
+00196 The MTK is developed by researchers and adjuncts to the
+00197 [Computational Science Research Center (CSRC)](http:\textcolor{comment}{//www.csrc.sdsu.edu/)}
+00198 at [San Diego State University (SDSU)](http:\textcolor{comment}{//www.sdsu.edu/).}
+00199 
+00200 Developers are members of:
+00201 
+00202 1. Mimetic Numerical Methods Research and Development Group.
+00203 2. Computational Geoscience Research and Development Group.
+00204 3. Ocean Modeling Research and Development Group.
+00205 
+00206 Currently the developers are:
+00207 
+00208 - **Eduardo J. Sanchez, Ph.D. - esanchez at mail dot sdsu dot edu** - @ejspeiro
+00209 - Jose E. Castillo, Ph.D. - jcastillo at mail dot sdsu dot edu
+00210 - Guillermo F. Miranda, Ph.D. - unigrav at hotmail dot com
+00211 - Christopher P. Paolini, Ph.D. - paolini at engineering dot sdsu dot edu
+00212 - Angel Boada.
+00213 - Johnny Corbino.
+00214 - Raul Vargas-Navarro.
+00215 
+00216 Finally, please feel free to contact me with suggestions or corrections:
+00217 
+00218 **Eduardo J. Sanchez, Ph.D. - esanchez at mail dot sdsu dot edu** - @ejspeiro
+00219 
+00220 Thanks and happy coding!
 \end{DoxyCode}
