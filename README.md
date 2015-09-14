@@ -1,4 +1,4 @@
-# README File for the MATLAB wrappers for the Mimetic Methods Toolkit (MMTK)
+# MATLAB wrappers for the Mimetic Methods Toolkit (MMTK)
 
 By: **Eduardo J. Sanchez, Ph.D. - esanchez at mail dot sdsu dot edu**
     __________________________________________________________________
@@ -15,6 +15,11 @@ numerical solution of ordinary and partial differential equations.
 
 This collection of **MATLAB Wrappers for the MTK (MMTK)** allows developers to
 invoke the MTK from a MATLAB environment.
+
+Finally, a collection of grid visualization routines that is compatible with
+these wrappers can be found in:
+
+[MATLAB Visualizers for Uniform Staggered Grids](https://github.com/ejspeiro/UniStgGrid-Visualizers)
     __________________________________________________________________
 
 ## 2. Dependencies

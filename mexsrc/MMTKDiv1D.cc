@@ -83,145 +83,141 @@ void mexFunction(int nlhs, mxArray *plhs[], int nrhs, const mxArray *prhs[]) {
   int num_cells;       // scaler to matrix size.
 
   mtk::Real *outMatrix;  // Where to place our output.
-  mtk::Real *outS;       // output Stencil.
-  mtk::Real *outQ;       // output Weights.
-  mtk::Real *outM;       // output Mimetic Coefficients.
+  mtk::Real *outS;       // Output Stencil.
+  mtk::Real *outQ;       // Output Weights.
+  mtk::Real *outM;       // Output Mimetic Coefficients.
 
   mtk::Real west_bndy_x; // Start of the Interval.
   mtk::Real east_bndy_x; // End of the Interval.
   mtk::Real tau;         // Mimetic tolerance (optional).
 
-//   if (nrhs >= 1 && nrhs <= 2) {
-//
-//     order_accuracy = mxGetScalar(prhs[0]);
-//
-//     if (nrhs == 1 && order_accuracy >= 8) {
-//       std::cout << "Default mimetic threshold set as 1e-6."<<std::endl;
-//       tau = 1e-6;
-//     }
-//     if (nrhs == 2 && order_accuracy < 8) {
-//       std::cout << "Order of accuracy does not need mimetic threshold. If provided it will be ignored."<<std::endl;
-//       tau = mxGetScalar(prhs[1]);
-//     }
-//     if(nrhs == 2 && order_accuracy >= 8) {
-//       tau = mxGetScalar(prhs[1]);
-//     }
-//     if (nlhs != 3) {
-//       mexErrMsgIdAndTxt("MyToolbox:arrayProduct:nlhs","3 outputs are needed: S, M, Q.");
-//     }
-//     if (nlhs == 3) {
-//
-//       // Stencil
-//       plhs[0] = mxCreateDoubleMatrix((mwSize) 1,(mwSize) order_accuracy,mxREAL);
-//
-//       //Mimetic coefficients Rows
-//       plhs[1] = mxCreateDoubleMatrix( (mwSize) (order_accuracy/2-1), (mwSize) (3*order_accuracy/ 2), mxREAL);
-//
-//       // Weights
-//       plhs[2] = mxCreateDoubleMatrix((mwSize) 1,(mwSize) order_accuracy, mxREAL);
-//
-//       outS = mxGetPr(plhs[0]);
-//       outM =mxGetPr(plhs[1]);
-//       outQ = mxGetPr(plhs[2]);
-//
-//       mtk_1d_div(order_accuracy, tau, outS ,outM,outQ);
-//     }
-//   } else {
-//
-//     if (nrhs > 5) {
-//       mexErrMsgIdAndTxt("MyToolbox:arrayProduct:nrhs", "At most 5 inputs are permited: (order, a, b, cells, tau).");
-//     }
-//
-//     if (nrhs < 4) {
-//       mexErrMsgIdAndTxt("MyToolbox:arrayProduct:nrhs", "At leats 4 inputs are required: (order, a, b, cells).");
-//     }
-//
-//     if (nlhs != 1) {
-//       mexErrMsgIdAndTxt("MyToolbox:arrayProduct:nlhs","One output is needed.");
-//     }
-//
-//     order_accuracy = mxGetScalar(prhs[0]);
-//
-//     west_bndy_x = mxGetScalar(prhs[1]);
-//
-//     east_bndy_x = mxGetScalar(prhs[2]);
-//
-//     num_cells = mxGetScalar(prhs[3]);
-//
-//     if (num_cells < 3*order_accuracy - 1) {
-//       mexErrMsgIdAndTxt("MyToolbox:arrayProduct:nrhs", "Number of cells too small for required order.");
-//     }
-//
-//     if (order_accuracy >= 8) {
-//       std::cout << "Order of accuracy too high. Mimetic threshold will be applied." << std::endl;
-//     }
-//
-//     if (nrhs == 5 && order_accuracy >= 8) {
-//       tau = mxGetScalar(prhs[4]);
-//     }
-//
-//     if(nrhs == 5 && order_accuracy <8 ) {
-//       std::cout << "Order of accuracy does not need mimetic threshold. If provided it will be ignored."<<std::endl;
-//       tau = mxGetScalar(prhs[4]);
-//     }
-//
-//     if(nrhs == 4 && order_accuracy >= 8) {
-//       //Default threshold, used only if order >=8
-//       std::cout << "Default mimetic threshold set as 1e-6."<<std::endl;
-//       tau = 1.0e-6;
-//     }
-//
-//     plhs[0] = mxCreateDoubleMatrix((mwSize) (num_cells + 2),
-//                                    (mwSize) (num_cells + 1),
-//                                    mxREAL);
-//
-//     outMatrix =  mxGetPr(plhs[0]);
-//
-//     MTKDiv1DReturnAsDenseMatrix(order_accuracy, west_bndy_x, east_bndy_x, num_cells, tau, outMatrix);
-//   }
+  if (nrhs >= 1 && nrhs <= 2) {
+
+    order_accuracy = mxGetScalar(prhs[0]);
+
+    if (nrhs == 1 && order_accuracy >= mtk::kCriticalOrderAccuracyDiv) {
+      tau = mtk::kDefaultMimeticThreshold;
+      std::cout << "Default mimetic threshold set as" << tau << std::endl;
+    }
+    if (nrhs == 2 && order_accuracy < mtk::kCriticalOrderAccuracyDiv) {
+      tau = mxGetScalar(prhs[1]);
+      std::cout << "Order of accuracy does not need mimetic threshold. If provided it will be ignored." << std::endl;
+    }
+    if(nrhs == 2 && order_accuracy >= mtk::kCriticalOrderAccuracyDiv) {
+      tau = mxGetScalar(prhs[1]);
+    }
+    if (nlhs != 3) {
+      mexErrMsgIdAndTxt("MMTK:Div1D:nlhs","3 outputs are needed: S, M, Q.");
+    }
+    if (nlhs == 3) {
+
+      // Stencil.
+      plhs[0] = mxCreateDoubleMatrix((mwSize) 1,
+                                     (mwSize) order_accuracy,
+                                     mxREAL);
+
+      // Mimetic coefficients rows.
+      plhs[1] = mxCreateDoubleMatrix((mwSize) (order_accuracy/2 - 1),
+                                     (mwSize) (3*order_accuracy/2),
+                                     mxREAL);
+
+      // Weights.
+      plhs[2] = mxCreateDoubleMatrix((mwSize) 1,
+                                     (mwSize) order_accuracy,
+                                     mxREAL);
+
+      outS = mxGetPr(plhs[0]);
+      outQ = mxGetPr(plhs[2]);
+      outM = mxGetPr(plhs[1]);
+
+      MTKDiv1D(order_accuracy, tau, outS, outQ, outM);
+    }
+  } else {
+
+    if (nrhs > 5) {
+      mexErrMsgIdAndTxt("MMTK:Div1D:nrhs",
+                        "At most 5 inputs are permitted: (order, west, east, cells, tau).");
+    }
+    if (nrhs < 4) {
+      mexErrMsgIdAndTxt("MMTK:Div1D:nrhs",
+                        "At leats 4 inputs are required: (order, west, east, cells).");
+    }
+    if (nlhs != 1) {
+      mexErrMsgIdAndTxt("MMTK:Div1D:nlhs","Only one output is needed.");
+    }
+
+    order_accuracy = mxGetScalar(prhs[0]);
+
+    west_bndy_x = mxGetScalar(prhs[1]);
+
+    east_bndy_x = mxGetScalar(prhs[2]);
+
+    num_cells = mxGetScalar(prhs[3]);
+
+    if (num_cells < 3*order_accuracy - 1) {
+      mexErrMsgIdAndTxt("MMTK:Div1D:nrhs", "Number of cells too small for required order.");
+    }
+    if (order_accuracy >= mtk::kCriticalOrderAccuracyDiv) {
+      std::cout << "Order of accuracy too high. Mimetic threshold will be applied." << std::endl;
+    }
+    if (nrhs == 5 && order_accuracy >= mtk::kCriticalOrderAccuracyDiv) {
+      tau = mxGetScalar(prhs[4]);
+    }
+    if(nrhs == 5 && order_accuracy < mtk::kCriticalOrderAccuracyDiv) {
+      std::cout << "Order of accuracy does not need mimetic threshold. If provided it will be ignored."<<std::endl;
+      tau = mxGetScalar(prhs[4]);
+    }
+    if(nrhs == 4 && order_accuracy >= mtk::kCriticalOrderAccuracyDiv) {
+      //Default threshold, used only if order >= mtk::kCriticalOrderAccuracyDiv.
+      tau = mtk::kDefaultMimeticThreshold;
+      std::cout << "Default mimetic threshold set as" << tau << std::endl;
+    }
+
+    plhs[0] = mxCreateDoubleMatrix((mwSize) (num_cells + 2),
+                                   (mwSize) (num_cells + 1),
+                                   mxREAL);
+
+    outMatrix =  mxGetPr(plhs[0]);
+
+    MTKDiv1DReturnAsDenseMatrix(order_accuracy,
+                                west_bndy_x, east_bndy_x, num_cells,
+                                tau, outMatrix);
+  }
 }
 
 static int MTKDiv1D(int order_accuracy,
                     mtk::Real tau,
                     mtk::Real *outS,
-                    mtk::Real *outM,
-                    mtk::Real *outQ) {
+                    mtk::Real *outQ,
+                    mtk::Real *outM) {
 
-//   mtk::MTK_1DDiv *div = new  mtk::MTK_1DDiv(order_accuracy,tau);
-//
-//   int Number_of_Extra_Rows=order_accuracy/2-1;
-//
-//   div = div->Construct1DDiv();
-//
-//   if (div == nullptr) {
-//     return EXIT_FAILURE;
-//   }
-//
-//   mtk::Real *ww;
-//   mtk::Real *ss;
-//   mtk::MTK_DenseMatrix *ee;
-//   mtk::MTK_DenseMatrix *eeT;
-//
-//   ss = div->ReturnStencil();
-//
-//   ww = div->ReturnWeights();
-//
-//   for(auto ii = 0; ii < order_accuracy; ii++) {
-//     outQ[ii]= ww[ii];
-//     outS[ii]= ss[ii];
-//   }
-//
-//   ee = div->ReturnMimeticCoefficients();
-//   eeT= new mtk::MTK_DenseMatrix(3*order_accuracy/2,Number_of_Extra_Rows);
-//   eeT->Transpose(*ee,*eeT);
-//
-//   for(auto ii=0;ii<3*order_accuracy/2*Number_of_Extra_Rows;ii++) {
-//   out M[ii]=eeT->DenseMatrix_To_Real(*eeT)[ii];
-//   }
-//
-//   delete [] ww;
-//   delete [] ss;
-//   delete [] ee;
+  mtk::Div1D div;
+
+  bool info = div.ConstructDiv1D(order_accuracy, tau);
+
+  if (!info) {
+    std::cerr << "Mimetic div could not be built." << std::endl;
+  }
+
+  int number_of_extra_rows = order_accuracy/2 - 1;
+
+  if (order_accuracy > mtk::kDefaultOrderAccuracy) {
+    for(auto ii = 0; ii < order_accuracy; ++ii) {
+      outS[ii] = div.coeffs_interior()[ii];
+      outQ[ii] = div.weights_cbs()[ii];
+    }
+    mtk::DenseMatrix ee(div.mim_bndy());
+
+    ee.OrderColMajor();
+
+    for(auto ii = 0; ii < (3*order_accuracy/2)*number_of_extra_rows; ++ii) {
+      outM[ii] = ee.data()[ii];
+    }
+  } else {
+    for(auto ii = 0; ii < order_accuracy; ++ii) {
+      outS[ii] = div.coeffs_interior()[ii];
+    }
+  }
 }
 
 static int MTKDiv1DReturnAsDenseMatrix(int order_accuracy,
@@ -231,32 +227,26 @@ static int MTKDiv1DReturnAsDenseMatrix(int order_accuracy,
                                        mtk::Real tau,
                                        mtk::Real *outMatrix) {
 
-//   int nn = num_cells + 2;
-//   int mm = num_cells + 1;
-//
-//   mtk::MTK_DenseMatrix *dd;
-//   mtk::MTK_DenseMatrix *ddT;
-//
-//   mtk::MTK_1DDiv *div = new  mtk::MTK_1DDiv(order_accuracy,tau);
-//
-//   div = div->Construct1DDiv();
-//
-//   ddT = new mtk::MTK_DenseMatrix(mm,nn);
-//
-//   if (div == nullptr) {
-//     std::cout << "Problem constructing the matrix... " << std::endl;
-//     return EXIT_FAILURE;
-//   }
-//
-//   dd = div->ReturnAsMatrix(num_cells, west_bndy_x, east_bndy_x);
-//
-//   dd->Transpose(*dd,*ddT);
-//
-//   for(auto ii = 0; ii < mm*nn; ii++) {
-//     outMatrix[ii]=ddT->DenseMatrix_To_Real(*ddT)[ii];
-//   }
-//
-//   delete [] ddT;
+  int nn = num_cells + 2;
+  int mm = num_cells + 1;
+
+  mtk::Div1D div;
+
+  bool info = div.ConstructDiv1D(order_accuracy, tau);
+
+  if (!info) {
+    std::cerr << "Mimetic div could not be built." << std::endl;
+  }
+
+  mtk::UniStgGrid1D grid(west_bndy_x, east_bndy_x, num_cells);
+
+  mtk::DenseMatrix divm(div.ReturnAsDenseMatrix(grid));
+
+  divm.OrderColMajor();
+
+  for(auto ii = 0; ii < mm*nn; ++ii) {
+    outMatrix[ii] = divm.data()[ii];
+  }
 }
 
 #endif

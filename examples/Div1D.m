@@ -18,11 +18,29 @@
 
 addpath('../mexsrc');
 
-format shortG;
 close all;
 clear all;
 clc;
 
-MMTKDiv1D(2)
+west = 0.0;
+east = 1.0;
+
+kk = 2
+[ss, mb, qq] = MMTKDiv1D(kk);
+ss
+
+num_cells = 3*kk - 1;
+div = MMTKDiv1D(kk, west, east, num_cells);
+div
+
+kk = 4
+[ss, mb, qq] = MMTKDiv1D(kk);
+ss
+mb
+qq
+
+num_cells = 3*kk - 1;
+div = MMTKDiv1D(kk, west, east, num_cells);
+div
 
 %------------- END OF CODE --------------
