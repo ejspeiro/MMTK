@@ -179,7 +179,7 @@ If successful you'll read:
 ----- Library created! Check in /home/ejspeiro/Dropbox/MTK/lib
 ```
 
-Examples and tests will also be built.
+Now you can run the examples located in their folder.
     __________________________________________________________________
 
 ## 4. Frequently Asked Questions
