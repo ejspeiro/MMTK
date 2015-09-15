@@ -19,16 +19,16 @@ examples/Div1D.m \-
 .RI "\fBwest\fP = 0\&.0"
 .br
 .ti -1c
-.RI "\fBeast\fP = 1\&.0"
-.br
-.ti -1c
-.RI "\fBkk\fP"
+.RI "\fBeast\fP"
 .br
 .ti -1c
 .RI "ss \fBnum_cells\fP = 3*\fBkk\fP - 1"
 .br
 .ti -1c
 .RI "\fBdiv\fP = MMTKDiv1D(\fBkk\fP, \fBwest\fP, \fBeast\fP, \fBnum_cells\fP)"
+.br
+.ti -1c
+.RI "\fBdiv\fP \fBkk\fP"
 .br
 .in -1c
 .SH "Variable Documentation"
@@ -45,19 +45,26 @@ Definition at line 23 of file Div1D\&.m\&.
 
 .PP
 Definition at line 33 of file Div1D\&.m\&.
-.SS "east = 1\&.0"
+.SS "east"
+\fBInitial value:\fP
+.PP
+.nf
+= 1\&.0
 
+kk = 2
+[ss, mb, qq] = MMTKDiv1D(kk)
+.fi
 .PP
 Definition at line 26 of file Div1D\&.m\&.
 .SS "\fBdiv\fP kk"
 \fBInitial value:\fP
 .PP
 .nf
-= 2
+= 4
 [ss, mb, qq] = MMTKDiv1D(kk)
 .fi
 .PP
-Definition at line 28 of file Div1D\&.m\&.
+Definition at line 36 of file Div1D\&.m\&.
 .SS "ss mb qq num_cells = 3*\fBkk\fP - 1"
 
 .PP

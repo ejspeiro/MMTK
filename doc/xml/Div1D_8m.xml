@@ -48,7 +48,10 @@
         <definition>east</definition>
         <argsstring></argsstring>
         <name>east</name>
-        <initializer>= 1.0</initializer>
+        <initializer>= 1.0
+
+<ref refid="Div1D_8m_1afd8da04287d364291ca7676dada86e49" kindref="member">kk</ref> = 2
+[ss, mb, qq] = MMTKDiv1D(<ref refid="Div1D_8m_1afd8da04287d364291ca7676dada86e49" kindref="member">kk</ref>)</initializer>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
@@ -56,21 +59,6 @@
         <inbodydescription>
         </inbodydescription>
         <location file="/home/ejspeiro/Dropbox/MMTK/examples/Div1D.m" line="26" column="1" bodyfile="/home/ejspeiro/Dropbox/MMTK/examples/Div1D.m" bodystart="26" bodyend="-1"/>
-      </memberdef>
-      <memberdef kind="variable" id="Div1D_8m_1afd8da04287d364291ca7676dada86e49" prot="public" static="no" mutable="no">
-        <type></type>
-        <definition>div kk</definition>
-        <argsstring></argsstring>
-        <name>kk</name>
-        <initializer>= 2
-[ss, mb, qq] = MMTKDiv1D(kk)</initializer>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="/home/ejspeiro/Dropbox/MMTK/examples/Div1D.m" line="28" column="1" bodyfile="/home/ejspeiro/Dropbox/MMTK/examples/Div1D.m" bodystart="28" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="Div1D_8m_1afa2de00f6b2bd4ed2aa68cd995a5bb17" prot="public" static="no" mutable="no">
         <type>ss</type>
@@ -99,6 +87,21 @@
         <inbodydescription>
         </inbodydescription>
         <location file="/home/ejspeiro/Dropbox/MMTK/examples/Div1D.m" line="33" column="1" bodyfile="/home/ejspeiro/Dropbox/MMTK/examples/Div1D.m" bodystart="33" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="Div1D_8m_1afd8da04287d364291ca7676dada86e49" prot="public" static="no" mutable="no">
+        <type><ref refid="Div1D_8m_1a00b49825eb9b4ffce1a4877d83ce126c" kindref="member">div</ref></type>
+        <definition>div kk</definition>
+        <argsstring></argsstring>
+        <name>kk</name>
+        <initializer>= 4
+[ss, mb, qq] = MMTKDiv1D(kk)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/ejspeiro/Dropbox/MMTK/examples/Div1D.m" line="36" column="1" bodyfile="/home/ejspeiro/Dropbox/MMTK/examples/Div1D.m" bodystart="36" bodyend="-1"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -131,9 +134,9 @@
 <codeline lineno="23" refid="Div1D_8m_1a3f3d3b13a15c726d6aa03db3dd0d6377" refkind="member"><highlight class="normal"><ref refid="Div1D_8m_1a3f3d3b13a15c726d6aa03db3dd0d6377" kindref="member">clc</ref>;</highlight></codeline>
 <codeline lineno="24"><highlight class="normal"></highlight></codeline>
 <codeline lineno="25" refid="Div1D_8m_1a42e8babba1fa05d3e41d900b79d27f09" refkind="member"><highlight class="normal"><ref refid="Div1D_8m_1a42e8babba1fa05d3e41d900b79d27f09" kindref="member">west</ref><sp/>=<sp/>0.0;</highlight></codeline>
-<codeline lineno="26" refid="Div1D_8m_1af3acd4f73a281b721e37442019d9f7b4" refkind="member"><highlight class="normal"><ref refid="Div1D_8m_1af3acd4f73a281b721e37442019d9f7b4" kindref="member">east</ref><sp/>=<sp/>1.0;</highlight></codeline>
+<codeline lineno="26" refid="Div1D_8m_1af3acd4f73a281b721e37442019d9f7b4" refkind="member"><highlight class="normal"><ref refid="Div1D_8m_1af3acd4f73a281b721e37442019d9f7b4" kindref="member">east</ref><sp/>=<sp/>1.0</highlight></codeline>
 <codeline lineno="27"><highlight class="normal"></highlight></codeline>
-<codeline lineno="28" refid="Div1D_8m_1afd8da04287d364291ca7676dada86e49" refkind="member"><highlight class="normal"><ref refid="Div1D_8m_1afd8da04287d364291ca7676dada86e49" kindref="member">kk</ref><sp/>=<sp/>2</highlight></codeline>
+<codeline lineno="28"><highlight class="normal">kk<sp/>=<sp/>2</highlight></codeline>
 <codeline lineno="29"><highlight class="normal">[ss,<sp/>mb,<sp/>qq]<sp/>=<sp/>MMTKDiv1D(<ref refid="Div1D_8m_1afd8da04287d364291ca7676dada86e49" kindref="member">kk</ref>);</highlight></codeline>
 <codeline lineno="30"><highlight class="normal">ss</highlight></codeline>
 <codeline lineno="31"><highlight class="normal"></highlight></codeline>
@@ -141,7 +144,7 @@
 <codeline lineno="33" refid="Div1D_8m_1a00b49825eb9b4ffce1a4877d83ce126c" refkind="member"><highlight class="normal"><ref refid="Div1D_8m_1a00b49825eb9b4ffce1a4877d83ce126c" kindref="member">div</ref><sp/>=<sp/>MMTKDiv1D(<ref refid="Div1D_8m_1afd8da04287d364291ca7676dada86e49" kindref="member">kk</ref>,<sp/><ref refid="Div1D_8m_1a42e8babba1fa05d3e41d900b79d27f09" kindref="member">west</ref>,<sp/><ref refid="Div1D_8m_1af3acd4f73a281b721e37442019d9f7b4" kindref="member">east</ref>,<sp/><ref refid="Div1D_8m_1afa2de00f6b2bd4ed2aa68cd995a5bb17" kindref="member">num_cells</ref>);</highlight></codeline>
 <codeline lineno="34"><highlight class="normal"><ref refid="Div1D_8m_1a00b49825eb9b4ffce1a4877d83ce126c" kindref="member">div</ref></highlight></codeline>
 <codeline lineno="35"><highlight class="normal"></highlight></codeline>
-<codeline lineno="36"><highlight class="normal"><ref refid="Div1D_8m_1afd8da04287d364291ca7676dada86e49" kindref="member">kk</ref><sp/>=<sp/>4</highlight></codeline>
+<codeline lineno="36" refid="Div1D_8m_1afd8da04287d364291ca7676dada86e49" refkind="member"><highlight class="normal"><ref refid="Div1D_8m_1afd8da04287d364291ca7676dada86e49" kindref="member">kk</ref><sp/>=<sp/>4</highlight></codeline>
 <codeline lineno="37"><highlight class="normal">[ss,<sp/>mb,<sp/>qq]<sp/>=<sp/>MMTKDiv1D(<ref refid="Div1D_8m_1afd8da04287d364291ca7676dada86e49" kindref="member">kk</ref>);</highlight></codeline>
 <codeline lineno="38"><highlight class="normal">ss</highlight></codeline>
 <codeline lineno="39"><highlight class="normal">mb</highlight></codeline>

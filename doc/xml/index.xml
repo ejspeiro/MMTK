@@ -7,9 +7,9 @@
     <member refid="Div1D_8m_1a3f3d3b13a15c726d6aa03db3dd0d6377" kind="variable"><name>clc</name></member>
     <member refid="Div1D_8m_1a42e8babba1fa05d3e41d900b79d27f09" kind="variable"><name>west</name></member>
     <member refid="Div1D_8m_1af3acd4f73a281b721e37442019d9f7b4" kind="variable"><name>east</name></member>
-    <member refid="Div1D_8m_1afd8da04287d364291ca7676dada86e49" kind="variable"><name>kk</name></member>
     <member refid="Div1D_8m_1afa2de00f6b2bd4ed2aa68cd995a5bb17" kind="variable"><name>num_cells</name></member>
     <member refid="Div1D_8m_1a00b49825eb9b4ffce1a4877d83ce126c" kind="variable"><name>div</name></member>
+    <member refid="Div1D_8m_1afd8da04287d364291ca7676dada86e49" kind="variable"><name>kk</name></member>
   </compound>
   <compound refid="mmtk_8h" kind="file"><name>mmtk.h</name>
   </compound>
