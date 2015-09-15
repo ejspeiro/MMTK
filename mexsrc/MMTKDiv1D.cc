@@ -95,9 +95,13 @@ void mexFunction(int nlhs, mxArray *plhs[], int nrhs, const mxArray *prhs[]) {
 
     order_accuracy = mxGetScalar(prhs[0]);
 
+    if (nrhs == 1 && order_accuracy < mtk::kCriticalOrderAccuracyDiv) {
+      tau = mtk::kDefaultMimeticThreshold;
+      std::cout << "Default mimetic threshold set as " << tau << std::endl;
+    }
     if (nrhs == 1 && order_accuracy >= mtk::kCriticalOrderAccuracyDiv) {
       tau = mtk::kDefaultMimeticThreshold;
-      std::cout << "Default mimetic threshold set as" << tau << std::endl;
+      std::cout << "Default mimetic threshold set as " << tau << std::endl;
     }
     if (nrhs == 2 && order_accuracy < mtk::kCriticalOrderAccuracyDiv) {
       tau = mxGetScalar(prhs[1]);

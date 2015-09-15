@@ -23,7 +23,7 @@ clear all;
 clc;
 
 west = 0.0;
-east = 1.0;
+east = 1.0
 
 kk = 2
 [ss, mb, qq] = MMTKDiv1D(kk);

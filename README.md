@@ -11,7 +11,10 @@ properties of their continuum counterparts to be **mimetic**.
 The **Mimetic Methods Toolkit (MTK)** is a C++ library for mimetic numerical
 methods. It is arranged as a set of classes for **mimetic quadratures**,
 **mimetic interpolation**, and **mimetic discretization** methods for the
-numerical solution of ordinary and partial differential equations.
+numerical solution of ordinary and partial differential equations. The MTK can
+be found in:
+
+[The Mimetic Methods Toolkit (MTK)](https://github.com/ejspeiro/MTK)
 
 This collection of **MATLAB Wrappers for the MTK (MMTK)** allows developers to
 invoke the MTK from a MATLAB environment.
@@ -176,7 +179,7 @@ If successful you'll read:
 ----- Library created! Check in /home/ejspeiro/Dropbox/MTK/lib
 ```
 
-And that is it!
+And that is it.
     __________________________________________________________________
 
 ## 4. Frequently Asked Questions
